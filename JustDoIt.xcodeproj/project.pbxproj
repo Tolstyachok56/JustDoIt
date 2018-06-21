@@ -12,6 +12,9 @@
 		044DB39D20DBD06D001A464F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044DB39C20DBD06D001A464F /* Assets.xcassets */; };
 		044DB3A020DBD06D001A464F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB39E20DBD06D001A464F /* LaunchScreen.storyboard */; };
 		044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3AE20DBD25B001A464F /* ListsViewController.swift */; };
+		044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */; };
+		044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
+		044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		044DB39F20DBD06D001A464F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044DB3A120DBD06D001A464F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044DB3AE20DBD25B001A464F /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		044DB3B420DBDEF6001A464F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustDoIt.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		044DB3A820DBD1A7001A464F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -83,6 +90,7 @@
 		044DB3A920DBD1B6001A464F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -107,7 +115,7 @@
 		044DB3AC20DBD1DE001A464F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				044DB3B020DBD25E001A464F /* Lists View Controller */,
+				044DB3B920DBF3BC001A464F /* Lists */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -124,8 +132,25 @@
 			isa = PBXGroup;
 			children = (
 				044DB3AE20DBD25B001A464F /* ListsViewController.swift */,
+				044DB3B120DBDC13001A464F /* ListTableViewCell */,
 			);
 			path = "Lists View Controller";
+			sourceTree = "<group>";
+		};
+		044DB3B120DBDC13001A464F /* ListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */,
+			);
+			path = ListTableViewCell;
+			sourceTree = "<group>";
+		};
+		044DB3B920DBF3BC001A464F /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				044DB3B020DBD25E001A464F /* Lists View Controller */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +226,9 @@
 			files = (
 				044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */,
 				044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */,
+				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
+				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
+				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +428,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */,
+			);
+			currentVersion = 044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */;
+			path = JustDoIt.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 044DB38A20DBD06C001A464F /* Project object */;
 }
