@@ -34,7 +34,8 @@ class ItemsViewController: UIViewController {
         }
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
 
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Item.name), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Item.isChecked), ascending: true),
+                                        NSSortDescriptor(key: #keyPath(Item.name), ascending: true)]
         
         fetchRequest.predicate = NSPredicate(format: "list == %@", self.list!)
 
@@ -119,13 +120,19 @@ class ItemsViewController: UIViewController {
     
     private func configure(_ cell:  ItemTableViewCell, at indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
-        cell.nameLabel.text = item.name
+        
+        let string = NSMutableAttributedString()
+        let strikeAttrs = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
         if item.isChecked {
             cell.checkmarkLabel.isHidden = false
+            string.append(NSAttributedString(string: item.name!, attributes: strikeAttrs))
         } else {
             cell.checkmarkLabel.isHidden = true
+            string.append(NSAttributedString(string: item.name!, attributes: nil))
         }
+        
+        cell.nameLabel.attributedText = string
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {
