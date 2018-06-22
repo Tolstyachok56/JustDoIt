@@ -16,6 +16,7 @@ class ListsViewController: UIViewController {
     private enum Segue {
         static let AddList = "AddList"
         static let List = "List"
+        static let Items = "Items"
     }
     
     // MARK: - Properties
@@ -106,6 +107,11 @@ class ListsViewController: UIViewController {
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             let list = fetchedResultsController.object(at: indexPath)
             destination.list = list
+        case Segue.Items:
+            guard let destination = segue.destination as? ItemsViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let list = fetchedResultsController.object(at: indexPath)
+            destination.list = list
         default:
             fatalError("Unexpected segue identifier")
         }
@@ -117,7 +123,7 @@ class ListsViewController: UIViewController {
         let list = fetchedResultsController.object(at: indexPath)
         
         cell.nameLabel.text = list.name
-        cell.numberOfItemsLabel.text = "-number- items"
+        cell.numberOfItemsLabel.text = "\(list.items?.count ?? 0) items"
     }
 
 }
@@ -154,8 +160,15 @@ extension ListsViewController: UITableViewDataSource {
         coreDataManager.mainManagedObjectContext.delete(list)
     }
     
-    
 }
+
+//// MARK: - UITableViewDelegate methods
+//
+//extension ListsViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
+//}
 
 // MARK: - NSFetchedResultsControllerDelegate methods
 

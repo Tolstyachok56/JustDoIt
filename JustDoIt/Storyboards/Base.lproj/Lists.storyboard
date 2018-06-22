@@ -62,6 +62,7 @@
                                             <outlet property="nameLabel" destination="orK-Lg-5Fh" id="kvI-zA-R0O"/>
                                             <outlet property="numberOfItemsLabel" destination="3Bd-nL-mxk" id="lwn-Q2-BJA"/>
                                             <segue destination="Hlz-og-BJA" kind="show" identifier="List" trigger="accessoryAction" id="2ZV-Wq-ebd"/>
+                                            <segue destination="9Ry-MW-wxm" kind="show" identifier="Items" id="6t8-hq-bVO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -97,7 +98,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="118.29085457271366"/>
+            <point key="canvasLocation" x="1108" y="101"/>
+        </scene>
+        <!--Items-->
+        <scene sceneID="cP3-GJ-ZTh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Items" id="9Ry-MW-wxm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHP-oX-v3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1153" y="777"/>
         </scene>
         <!--Title-->
         <scene sceneID="zUm-eN-yiu">

@@ -3,12 +3,14 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="isChecked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="list" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="List" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-54" positionY="0" width="128" height="75"/>
-        <element name="List" positionX="-237.734375" positionY="-1.31640625" width="128" height="60"/>
+        <element name="Item" positionX="-54" positionY="0" width="128" height="90"/>
+        <element name="List" positionX="-237.734375" positionY="-1.31640625" width="128" height="75"/>
     </elements>
 </model>
