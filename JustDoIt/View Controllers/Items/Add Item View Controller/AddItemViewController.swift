@@ -24,7 +24,7 @@ class AddItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Add List"
+        title = "Add Item"
         
         setupView()
     }
