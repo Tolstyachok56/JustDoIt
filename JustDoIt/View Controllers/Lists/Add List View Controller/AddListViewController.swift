@@ -28,6 +28,7 @@ class AddListViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         nameTextField.becomeFirstResponder()
     }
     
@@ -36,14 +37,14 @@ class AddListViewController: UIViewController {
     @IBAction func save(_ sender: UIBarButtonItem) {
         guard let managedObjectContext = managedObjectContext else { return }
         
-        guard let title = nameTextField.text, !title.isEmpty else {
+        guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(withTitle: "Name missing", andMessage: "Your list doesn't have any name")
             return
         }
         
         let list = List(context: managedObjectContext)
         
-        list.name = title
+        list.name = name
         
         _ = navigationController?.popViewController(animated: true)
     }

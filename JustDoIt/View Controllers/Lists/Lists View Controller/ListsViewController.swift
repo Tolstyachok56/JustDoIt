@@ -100,8 +100,12 @@ class ListsViewController: UIViewController {
         case Segue.AddList:
             guard let destination = segue.destination as? AddListViewController else { return }
             destination.managedObjectContext = coreDataManager.mainManagedObjectContext
-//        case Segue.List:
-//            guard let destination = segue.destination as? ListViewController else { return }
+        case Segue.List:
+            guard let destination = segue.destination as? ListViewController else { return }
+            guard let cell = sender as? ListTableViewCell else { return }
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+            let list = fetchedResultsController.object(at: indexPath)
+            destination.list = list
         default:
             fatalError("Unexpected segue identifier")
         }
@@ -150,16 +154,6 @@ extension ListsViewController: UITableViewDataSource {
         coreDataManager.mainManagedObjectContext.delete(list)
     }
     
-    
-}
-
-// MARK: - UITableViewDelegate methods
-
-extension ListsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     
 }
 

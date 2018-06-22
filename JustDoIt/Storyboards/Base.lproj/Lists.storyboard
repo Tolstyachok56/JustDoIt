@@ -61,6 +61,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="orK-Lg-5Fh" id="kvI-zA-R0O"/>
                                             <outlet property="numberOfItemsLabel" destination="3Bd-nL-mxk" id="lwn-Q2-BJA"/>
+                                            <segue destination="Hlz-og-BJA" kind="show" identifier="List" trigger="accessoryAction" id="2ZV-Wq-ebd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -106,11 +107,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgs-yU-9sy">
+                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="list name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgs-yU-9sy">
                                 <rect key="frame" x="20" y="84" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,6 +136,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4O-gq-6mp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1946" y="-168"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="l7I-Ng-RJ2">
+            <objects>
+                <viewController id="Hlz-og-BJA" customClass="ListViewController" customModule="JustDoIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DyZ-R5-Uo7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="list name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a3y-N9-IqO">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6wp-S8-cRK" firstAttribute="trailing" secondItem="a3y-N9-IqO" secondAttribute="trailing" constant="20" id="HsY-Zh-lI6"/>
+                            <constraint firstItem="a3y-N9-IqO" firstAttribute="top" secondItem="6wp-S8-cRK" secondAttribute="top" constant="20" id="Yk7-k7-YA5"/>
+                            <constraint firstItem="a3y-N9-IqO" firstAttribute="leading" secondItem="6wp-S8-cRK" secondAttribute="leading" constant="20" id="qFz-Ag-Adc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6wp-S8-cRK"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="a3y-N9-IqO" id="o8U-Dx-Rss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4MR-Me-jPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="542"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zd7-7X-JW4">
