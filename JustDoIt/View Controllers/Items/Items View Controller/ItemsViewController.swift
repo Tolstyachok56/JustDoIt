@@ -122,9 +122,9 @@ class ItemsViewController: UIViewController {
         cell.nameLabel.text = item.name
         
         if item.isChecked {
-            cell.accessoryType = .checkmark
+            cell.checkmarkLabel.isHidden = false
         } else {
-            cell.accessoryType = .detailDisclosureButton
+            cell.checkmarkLabel.isHidden = true
         }
     }
     

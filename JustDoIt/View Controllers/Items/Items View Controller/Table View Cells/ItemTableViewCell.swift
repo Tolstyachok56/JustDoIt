@@ -17,6 +17,7 @@ class ItemTableViewCell: UITableViewCell {
     //MARK: - Properties
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var checkmarkLabel: UILabel!
     
     //MARK: - Initialization
     override func awakeFromNib() {

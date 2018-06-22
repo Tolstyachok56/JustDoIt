@@ -31,28 +31,35 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemTableViewCell" id="VK4-6W-jmD" customClass="ItemTableViewCell" customModule="JustDoIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VK4-6W-jmD" id="3S3-yu-k9F">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VK4-6W-jmD" id="3S3-yu-k9F">
                                             <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-h2-3WE">
-                                                    <rect key="frame" x="20" y="0.0" width="268" height="44.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="eyh-4o-sH0"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-h2-3WE">
+                                                    <rect key="frame" x="39" y="10" width="253" height="23.5"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLQ-ah-Wfn">
+                                                    <rect key="frame" x="16" y="10" width="15" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="TlN-h2-3WE" secondAttribute="bottom" id="LYr-pp-TX5"/>
-                                                <constraint firstItem="TlN-h2-3WE" firstAttribute="top" secondItem="3S3-yu-k9F" secondAttribute="top" id="UaR-bZ-OIe"/>
-                                                <constraint firstAttribute="trailing" secondItem="TlN-h2-3WE" secondAttribute="trailing" constant="20" id="a0m-Ll-7ib"/>
-                                                <constraint firstItem="TlN-h2-3WE" firstAttribute="leading" secondItem="3S3-yu-k9F" secondAttribute="leading" constant="20" id="a3l-c8-Hh3"/>
+                                                <constraint firstItem="TlN-h2-3WE" firstAttribute="leading" secondItem="ZLQ-ah-Wfn" secondAttribute="trailing" constant="8" id="Gbu-M8-k0g"/>
+                                                <constraint firstAttribute="bottom" secondItem="TlN-h2-3WE" secondAttribute="bottom" constant="10" id="LYr-pp-TX5"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZLQ-ah-Wfn" secondAttribute="bottom" constant="10" id="QEz-AJ-Ijg"/>
+                                                <constraint firstItem="TlN-h2-3WE" firstAttribute="top" secondItem="3S3-yu-k9F" secondAttribute="top" constant="10" id="UaR-bZ-OIe"/>
+                                                <constraint firstAttribute="trailing" secondItem="TlN-h2-3WE" secondAttribute="trailing" constant="16" id="a0m-Ll-7ib"/>
+                                                <constraint firstItem="ZLQ-ah-Wfn" firstAttribute="leading" secondItem="3S3-yu-k9F" secondAttribute="leading" constant="16" id="mmU-Yc-5zc"/>
+                                                <constraint firstItem="ZLQ-ah-Wfn" firstAttribute="top" secondItem="3S3-yu-k9F" secondAttribute="top" constant="10" id="tQt-J9-efD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkmarkLabel" destination="ZLQ-ah-Wfn" id="X9F-8F-jke"/>
                                             <outlet property="nameLabel" destination="TlN-h2-3WE" id="qzw-Pi-tBA"/>
                                             <segue destination="lRN-7B-KNA" kind="show" identifier="Item" trigger="accessoryAction" id="fdV-QT-aAX"/>
                                         </connections>
