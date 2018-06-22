@@ -17,7 +17,7 @@ class AddItemViewController: UIViewController {
 
     //MARK: -
     
-    var managedObjectContext: NSManagedObjectContext?
+    var list: List?
     
     //MARK: - View life cycle
     
@@ -46,7 +46,7 @@ class AddItemViewController: UIViewController {
     //MARK: - Actions
     
     @objc private func save(_ sender: UIBarButtonItem) {
-        guard let managedObjectContext = managedObjectContext else { return }
+        guard let managedObjectContext = list?.managedObjectContext else { return }
         
         guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(withTitle: "Name missing", andMessage: "Your item doesn't have any name")
@@ -56,6 +56,7 @@ class AddItemViewController: UIViewController {
         let item = Item(context: managedObjectContext)
         
         item.name = name
+        list?.addToItems(item)
         
         _ = navigationController?.popViewController(animated: true)
     }

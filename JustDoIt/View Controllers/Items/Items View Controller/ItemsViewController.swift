@@ -103,7 +103,7 @@ class ItemsViewController: UIViewController {
         switch identifier {
         case Segue.AddItem:
             guard let destination = segue.destination as? AddItemViewController else { return }
-            destination.managedObjectContext = list?.managedObjectContext
+            destination.list = list
         case Segue.Item:
             guard let destination = segue.destination as? ItemViewController else { return }
             guard let cell = sender as? ItemTableViewCell else { return }
