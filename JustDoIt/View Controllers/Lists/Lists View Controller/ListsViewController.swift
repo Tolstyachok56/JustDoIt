@@ -162,13 +162,13 @@ extension ListsViewController: UITableViewDataSource {
     
 }
 
-//// MARK: - UITableViewDelegate methods
-//
-//extension ListsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
-//}
+// MARK: - UITableViewDelegate methods
+
+extension ListsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
 // MARK: - NSFetchedResultsControllerDelegate methods
 

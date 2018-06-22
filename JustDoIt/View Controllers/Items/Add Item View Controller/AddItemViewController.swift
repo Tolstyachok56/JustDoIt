@@ -56,6 +56,7 @@ class AddItemViewController: UIViewController {
         let item = Item(context: managedObjectContext)
         
         item.name = name
+        item.isChecked = false
         list?.addToItems(item)
         
         _ = navigationController?.popViewController(animated: true)

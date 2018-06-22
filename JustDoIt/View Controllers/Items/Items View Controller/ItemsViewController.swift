@@ -120,6 +120,12 @@ class ItemsViewController: UIViewController {
     private func configure(_ cell:  ItemTableViewCell, at indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
         cell.nameLabel.text = item.name
+        
+        if item.isChecked {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .detailDisclosureButton
+        }
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {
@@ -156,6 +162,20 @@ extension ItemsViewController: UITableViewDataSource {
         list?.managedObjectContext?.delete(item)
     }
 }
+
+// MARK: - UITableViewDelegate methods
+
+extension ItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let item = fetchedResultsController.object(at: indexPath)
+        
+        item.isChecked = !item.isChecked
+        
+    }
+}
+
 
 //MARK: - NSFetchedResultsControllerDelegate methods
 

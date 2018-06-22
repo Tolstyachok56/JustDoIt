@@ -134,8 +134,8 @@
 		044DB3AC20DBD1DE001A464F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				044DB3C420DCF673001A464F /* Items */,
 				044DB3B920DBF3BC001A464F /* Lists */,
+				044DB3C420DCF673001A464F /* Items */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
