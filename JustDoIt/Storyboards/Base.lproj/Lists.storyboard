@@ -64,6 +64,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tuD-Db-Yn9"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1QB-mk-kfk"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +83,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="6B3-SH-vX9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gRx-in-mC3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gRx-in-mC3">
+                            <connections>
+                                <segue destination="Rga-7R-xde" kind="show" identifier="AddList" id="Zsa-BQ-YXh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="lD4-g8-py3" id="837-fQ-Tas"/>
@@ -89,6 +97,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="118.29085457271366"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="zUm-eN-yiu">
+            <objects>
+                <viewController id="Rga-7R-xde" customClass="AddListViewController" customModule="JustDoIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8k-A9-QDr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgs-yU-9sy">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f75-Cd-sF0" firstAttribute="trailing" secondItem="pgs-yU-9sy" secondAttribute="trailing" constant="20" id="62H-dP-zK4"/>
+                            <constraint firstItem="pgs-yU-9sy" firstAttribute="leading" secondItem="f75-Cd-sF0" secondAttribute="leading" constant="20" id="TN9-NO-C4f"/>
+                            <constraint firstItem="pgs-yU-9sy" firstAttribute="top" secondItem="f75-Cd-sF0" secondAttribute="top" constant="20" id="lu9-vQ-ZFe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f75-Cd-sF0"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="nx1-kT-f52">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="YhN-CF-vMB">
+                            <connections>
+                                <action selector="save:" destination="Rga-7R-xde" id="heC-uh-Gyq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="pgs-yU-9sy" id="yKp-y8-bAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4O-gq-6mp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1946" y="-168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zd7-7X-JW4">

@@ -43,8 +43,8 @@ class ListsViewController: UIViewController {
     // MARK: -
     
     private var hasLists: Bool {
-        //TODO: - implementation
-        return false
+        guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
+        return fetchedObjects.count > 0
     }
     
     // MARK: - View life cycle
@@ -59,20 +59,20 @@ class ListsViewController: UIViewController {
         updateView()
     }
     
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    }
-    
     // MARK: - View methods
     
     private func setupView() {
         setupMessageLabel()
+        setupTableView()
     }
     
     private func setupMessageLabel() {
         messageLabel.text = "You don't have any lists yet"
+    }
+    
+    private func setupTableView() {
+        tableView.estimatedRowHeight = CGFloat(44)
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func updateView() {
@@ -83,9 +83,30 @@ class ListsViewController: UIViewController {
     // MARK: - Fetching
     
     private func fetchLists() {
-        
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch let fetchError {
+            print("Unable to perform fetch")
+            print("\(fetchError): \(fetchError.localizedDescription)")
+        }
     }
     
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case Segue.AddList:
+            guard let destination = segue.destination as? AddListViewController else { return }
+            destination.managedObjectContext = coreDataManager.mainManagedObjectContext
+//        case Segue.List:
+//            guard let destination = segue.destination as? ListViewController else { return }
+        default:
+            fatalError("Unexpected segue identifier")
+        }
+    }
+
     //MARK: - Helper methods
     
     private func configure(_ cell: ListTableViewCell, at indexPath: IndexPath) {

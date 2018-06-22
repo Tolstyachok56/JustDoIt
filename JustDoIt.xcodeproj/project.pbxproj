@@ -15,6 +15,8 @@
 		044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */; };
 		044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
 		044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */; };
+		044DB3BC20DCE4C8001A464F /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3BB20DCE4C8001A464F /* AddListViewController.swift */; };
+		044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3BE20DCE6D3001A464F /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		044DB3B420DBDEF6001A464F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustDoIt.xcdatamodel; sourceTree = "<group>"; };
+		044DB3BB20DCE4C8001A464F /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		044DB3BE20DCE6D3001A464F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 				044DB3AD20DBD1F1001A464F /* Application Delegate */,
 				044DB3AC20DBD1DE001A464F /* View Controllers */,
 				044DB3AB20DBD1CC001A464F /* Storyboards */,
+				044DB3BD20DCE6B6001A464F /* Extentions */,
 				044DB3AA20DBD1C1001A464F /* Resources */,
 				044DB3A920DBD1B6001A464F /* Managers */,
 				044DB3A820DBD1A7001A464F /* Core Data */,
@@ -148,9 +153,26 @@
 		044DB3B920DBF3BC001A464F /* Lists */ = {
 			isa = PBXGroup;
 			children = (
+				044DB3BA20DCE498001A464F /* AddListViewController */,
 				044DB3B020DBD25E001A464F /* Lists View Controller */,
 			);
 			path = Lists;
+			sourceTree = "<group>";
+		};
+		044DB3BA20DCE498001A464F /* AddListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				044DB3BB20DCE4C8001A464F /* AddListViewController.swift */,
+			);
+			path = AddListViewController;
+			sourceTree = "<group>";
+		};
+		044DB3BD20DCE6B6001A464F /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				044DB3BE20DCE6D3001A464F /* UIViewController.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */,
+				044DB3BC20DCE4C8001A464F /* AddListViewController.swift in Sources */,
 				044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */,
 				044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */,
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
