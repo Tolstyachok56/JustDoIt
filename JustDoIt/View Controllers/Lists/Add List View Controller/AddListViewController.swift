@@ -50,3 +50,14 @@ class AddListViewController: UIViewController {
     }
 
 }
+
+//MARK: - UITextFieldDelegate methods
+
+extension AddListViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
+}

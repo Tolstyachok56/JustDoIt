@@ -63,3 +63,14 @@ class AddItemViewController: UIViewController {
     }
 
 }
+
+//MARK: - UITextFieldDelegate methods
+
+extension AddItemViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
+}

@@ -124,8 +124,8 @@ class ListsViewController: UIViewController {
         
         cell.nameLabel.text = list.name
         
-        guard let items = list.items as? Set<Item> else {
-            cell.numberOfItemsLabel.text = "0 items"
+        guard let items = list.items as? Set<Item>, items.count > 0 else {
+            cell.numberOfItemsLabel.text = "No items"
             return
         }
         let unCheckedItems = Array(items).filter{$0.isChecked}

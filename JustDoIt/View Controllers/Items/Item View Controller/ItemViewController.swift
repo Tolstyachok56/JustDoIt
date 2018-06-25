@@ -50,4 +50,16 @@ class ItemViewController: UIViewController {
     private func setupNameTextField() {
         nameTextField.text = item?.name
     }
+    
+}
+
+//MARK: - UITextFieldDelegate methods
+
+extension ItemViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
 }
