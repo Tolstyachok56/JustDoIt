@@ -121,18 +121,20 @@ class ItemsViewController: UIViewController {
     private func configure(_ cell:  ItemTableViewCell, at indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
         
-        let string = NSMutableAttributedString()
-        let strikeAttrs = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+        let attributedString = NSMutableAttributedString()
+        let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
         if item.isChecked {
             cell.checkmarkLabel.isHidden = false
-            string.append(NSAttributedString(string: item.name!, attributes: strikeAttrs))
+            attributedString.append(NSAttributedString(string: item.name!, attributes: strikeAttributes))
         } else {
             cell.checkmarkLabel.isHidden = true
-            string.append(NSAttributedString(string: item.name!, attributes: nil))
+            attributedString.append(NSAttributedString(string: item.name!, attributes: nil))
         }
         
-        cell.nameLabel.attributedText = string
+        cell.nameLabel.attributedText = attributedString
+        
+        cell.checkmarkLabel.textColor = view.tintColor
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {
@@ -173,14 +175,15 @@ extension ItemsViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate methods
 
 extension ItemsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+    
         let item = fetchedResultsController.object(at: indexPath)
         
         item.isChecked = !item.isChecked
-        
     }
+    
 }
 
 
