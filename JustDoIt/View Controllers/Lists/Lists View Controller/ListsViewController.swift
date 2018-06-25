@@ -130,7 +130,7 @@ class ListsViewController: UIViewController {
         }
         let unCheckedItems = Array(items).filter{!$0.isChecked}
         
-        if unCheckedItems.count == items.count {
+        if unCheckedItems.count == 0 {
             cell.numberOfItemsLabel.text = "All done!"
         } else {
             cell.numberOfItemsLabel.text = "\(unCheckedItems.count) remaining"
