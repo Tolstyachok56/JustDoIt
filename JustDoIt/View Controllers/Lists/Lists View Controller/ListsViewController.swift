@@ -124,16 +124,12 @@ class ListsViewController: UIViewController {
         
         cell.nameLabel.text = list.name
         
-        cell.numberOfItemsLabel.text = "\(list.items?.count ?? 0) items"
-        
-//        guard let items = list.items as? Set<Item> else {
-//            cell.numberOfItemsLabel.text = "0 items"
-//            return
-//        }
-//        let checkedItems = Array(items).filter{$0.isChecked}
-//        let notCheckedItems = Array(items).filter{!$0.isChecked}
-//        cell.numberOfItemsLabel.text = "\(checkedItems.count) checked items, \(notCheckedItems.count) items remain"
-        
+        guard let items = list.items as? Set<Item> else {
+            cell.numberOfItemsLabel.text = "0 items"
+            return
+        }
+        let unCheckedItems = Array(items).filter{$0.isChecked}
+        cell.numberOfItemsLabel.text = "\(unCheckedItems.count)/\(items.count) items"
     }
 
 }
