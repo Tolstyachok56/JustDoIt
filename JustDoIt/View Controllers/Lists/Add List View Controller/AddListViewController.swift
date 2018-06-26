@@ -19,6 +19,8 @@ class AddListViewController: UIViewController {
     
     var managedObjectContext: NSManagedObjectContext?
     
+    var iconName: String = "NoIcon"
+    
     //MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -45,6 +47,7 @@ class AddListViewController: UIViewController {
         let list = List(context: managedObjectContext)
         
         list.name = name
+        list.iconName = self.iconName
         
         _ = navigationController?.popViewController(animated: true)
     }

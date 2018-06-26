@@ -122,18 +122,27 @@ class ListsViewController: UIViewController {
     private func configure(_ cell: ListTableViewCell, at indexPath: IndexPath) {
         let list = fetchedResultsController.object(at: indexPath)
         
+        // name label
         cell.nameLabel.text = list.name
         
-        guard let items = list.items as? Set<Item>, items.count > 0 else {
-            cell.numberOfItemsLabel.text = "[No items]"
-            return
-        }
-        let unCheckedItems = Array(items).filter{!$0.isChecked}
-        
-        if unCheckedItems.count == 0 {
-            cell.numberOfItemsLabel.text = "All done!"
+        // number of items label
+        if let items = list.items as? Set<Item>, items.count > 0 {
+            let unCheckedItems = Array(items).filter{!$0.isChecked}
+            
+            if unCheckedItems.count == 0 {
+                cell.numberOfItemsLabel.text = "All done!"
+            } else {
+                cell.numberOfItemsLabel.text = "\(unCheckedItems.count) remaining"
+            }
         } else {
-            cell.numberOfItemsLabel.text = "\(unCheckedItems.count) remaining"
+            cell.numberOfItemsLabel.text = "[No items]"
+        }
+        
+        // icon image view
+        if let iconName = list.iconName {
+            cell.iconImageView.image = UIImage(named: iconName)
+        } else {
+            cell.iconImageView.image = UIImage(named: "NoIcon")
         }
     }
 

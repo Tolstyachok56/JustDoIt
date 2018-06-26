@@ -18,6 +18,7 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var numberOfItemsLabel: UILabel!
+    @IBOutlet var iconImageView: UIImageView!
     
     //MARK: - Initialization
 
