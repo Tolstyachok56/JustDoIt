@@ -127,7 +127,7 @@ class ListsViewController: UIViewController {
         
         // number of items label
         if let items = list.items as? Set<Item>, items.count > 0 {
-            let unCheckedItems = Array(items).filter{!$0.isChecked}
+            let unCheckedItems = Array(items).filter { !$0.isChecked }
             
             if unCheckedItems.count == 0 {
                 cell.numberOfItemsLabel.text = "All done!"

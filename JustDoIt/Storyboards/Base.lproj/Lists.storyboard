@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="list name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgs-yU-9sy">
-                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <rect key="frame" x="20" y="176" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
@@ -135,12 +135,25 @@
                                     <outlet property="delegate" destination="Rga-7R-xde" id="Tym-8F-qoh"/>
                                 </connections>
                             </textField>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SOP-fy-SSL">
+                                <rect key="frame" x="151.5" y="84" width="72" height="72"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="194-Us-vgx"/>
+                                    <constraint firstAttribute="width" constant="72" id="8iX-9q-WMO"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="iPz-tL-owc" appends="YES" id="NHD-sq-77V"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f75-Cd-sF0" firstAttribute="trailing" secondItem="pgs-yU-9sy" secondAttribute="trailing" constant="20" id="62H-dP-zK4"/>
+                            <constraint firstItem="SOP-fy-SSL" firstAttribute="top" secondItem="f75-Cd-sF0" secondAttribute="top" constant="20" id="M9F-Av-I4P"/>
                             <constraint firstItem="pgs-yU-9sy" firstAttribute="leading" secondItem="f75-Cd-sF0" secondAttribute="leading" constant="20" id="TN9-NO-C4f"/>
-                            <constraint firstItem="pgs-yU-9sy" firstAttribute="top" secondItem="f75-Cd-sF0" secondAttribute="top" constant="20" id="lu9-vQ-ZFe"/>
+                            <constraint firstItem="pgs-yU-9sy" firstAttribute="top" secondItem="SOP-fy-SSL" secondAttribute="bottom" constant="20" id="VHl-ET-XCw"/>
+                            <constraint firstItem="SOP-fy-SSL" firstAttribute="centerX" secondItem="X8k-A9-QDr" secondAttribute="centerX" id="VIs-b1-xzB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f75-Cd-sF0"/>
                     </view>
@@ -152,12 +165,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="iconImageView" destination="SOP-fy-SSL" id="Jd3-MX-qbr"/>
                         <outlet property="nameTextField" destination="pgs-yU-9sy" id="yKp-y8-bAK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4O-gq-6mp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="iPz-tL-owc">
+                    <connections>
+                        <segue destination="eR1-Wo-MQt" kind="show" identifier="Icon" id="phx-sI-pI9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1946" y="-168"/>
+            <point key="canvasLocation" x="1944.8" y="-168.6656671664168"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="l7I-Ng-RJ2">
@@ -274,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlA-da-gDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2733.5999999999999" y="541.97901049475263"/>
+            <point key="canvasLocation" x="2956" y="211"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zd7-7X-JW4">
@@ -295,4 +314,7 @@
             <point key="canvasLocation" x="271" y="118"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="phx-sI-pI9"/>
+    </inferredMetricsTieBreakers>
 </document>

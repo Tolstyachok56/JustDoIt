@@ -11,9 +11,16 @@ import CoreData
 
 class AddListViewController: UIViewController {
     
+    //MARK: - Segues
+    
+    private enum Segue {
+        static let Icon = "Icon"
+    }
+    
     //MARK: - Properties
     
     @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var iconImageView: UIImageView!
     
     //MARK: -
     
@@ -27,11 +34,25 @@ class AddListViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Add List"
+        
+        setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        nameTextField.becomeFirstResponder()
+    //MARK: - View methods
+    
+    private func setupView() {
+        setupIconImageView()
+    }
+    
+    private func setupIconImageView() {
+        iconImageView.layer.borderWidth = CGFloat(1.0)
+        iconImageView.layer.cornerRadius = CGFloat(5)
+        
+        updateIconImageView()
+    }
+    
+    private func updateIconImageView() {
+        iconImageView.image = UIImage(named: iconName)
     }
     
     //MARK: - Actions
@@ -51,6 +72,21 @@ class AddListViewController: UIViewController {
         
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case Segue.Icon:
+            guard let destination = segue.destination as? IconViewController else { return }
+            destination.delegate = self
+            destination.iconName = self.iconName
+        default:
+            fatalError("Unexpected segue identifier")
+        }
+    }
 
 }
 
@@ -61,6 +97,17 @@ extension AddListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
+    }
+    
+}
+
+//MARK: - IconViewControllerDelegate methods
+
+extension AddListViewController: IconViewControllerDelegate {
+    
+    func controller(_ controller: IconViewController, didPick iconName: String) {
+        self.iconName = iconName
+        updateIconImageView()
     }
     
 }

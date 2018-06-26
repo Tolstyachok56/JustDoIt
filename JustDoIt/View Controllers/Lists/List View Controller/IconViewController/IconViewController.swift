@@ -48,8 +48,7 @@ class IconViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Icons"
-        
-        setupView()
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,12 +59,6 @@ class IconViewController: UIViewController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    //MARK: - View methods
-    
-    private func setupView() {
-        
     }
     
     //MARK: - Helper methods
