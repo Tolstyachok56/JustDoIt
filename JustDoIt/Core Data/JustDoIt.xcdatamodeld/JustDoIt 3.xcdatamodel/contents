@@ -8,7 +8,7 @@
     <entity name="List" representedClassName="List" syncable="YES" codeGenerationType="class">
         <attribute name="iconName" attributeType="String" defaultValueString="NoIcon" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="-54" positionY="0" width="128" height="90"/>

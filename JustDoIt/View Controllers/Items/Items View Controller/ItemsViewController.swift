@@ -70,6 +70,7 @@ class ItemsViewController: UIViewController {
     private func setupView() {
         setupMessageLabel()
         setupBarButtonItems()
+        setupTableView()
     }
     
     private func setupMessageLabel() {
@@ -78,6 +79,11 @@ class ItemsViewController: UIViewController {
     
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+    }
+    
+    private func setupTableView() {
+        tableView.estimatedRowHeight = CGFloat(44)
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     private func updateView() {

@@ -60,6 +60,10 @@ class ListsViewController: UIViewController {
         updateView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - View methods
     
     private func setupView() {
