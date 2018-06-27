@@ -176,6 +176,7 @@
 				044DB3B020DBD25E001A464F /* Lists View Controller */,
 				044DB3BA20DCE498001A464F /* Add List View Controller */,
 				044DB3C120DCF05C001A464F /* List View Controller */,
+				0489F2F220E2441500A768C8 /* IconViewController */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -200,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				044DB3C220DCF0AB001A464F /* ListViewController.swift */,
-				0489F2F220E2441500A768C8 /* IconViewController */,
 			);
 			path = "List View Controller";
 			sourceTree = "<group>";
