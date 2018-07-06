@@ -22,7 +22,7 @@ extension Item {
             content.title = "Reminder:"
             content.body = self.name!
             content.sound = UNNotificationSound.default
-            content.badge = 1
+//            content.badge = 1
             
             let calendar = Calendar.current
             let components = calendar.dateComponents([.month, .day, .hour, .minute], from: dueDate)
