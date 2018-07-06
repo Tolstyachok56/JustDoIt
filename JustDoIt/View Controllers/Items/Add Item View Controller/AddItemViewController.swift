@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import  CoreData
+import CoreData
+import UserNotifications
 
 class AddItemViewController: UIViewController {
     
@@ -96,6 +97,7 @@ class AddItemViewController: UIViewController {
         item.isChecked = false
         item.shouldRemind = shouldRemindSwitch.isOn
         item.dueDate = datePicker.date
+        item.uid = UUID().uuidString
         list?.addToItems(item)
         
         item.scheduleNotification()
@@ -104,7 +106,12 @@ class AddItemViewController: UIViewController {
     }
     
     @IBAction func toggleShouldRemindSwitch(_ sender: UISwitch) {
+        nameTextField.resignFirstResponder()
         updateDatePicker()
+        if shouldRemindSwitch.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in })
+        }
     }
     
     @IBAction func dueDateChanged(_ sender: UIDatePicker) {

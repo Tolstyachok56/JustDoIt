@@ -27,6 +27,8 @@ class ItemsViewController: UIViewController {
     
     var list: List?
     
+    //MARK: -
+    
     private lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
 
         guard let managedObjectContext = self.list?.managedObjectContext else {
@@ -47,6 +49,8 @@ class ItemsViewController: UIViewController {
 
         return fetchedResultsController
     }()
+    
+    //MARK: -
     
     private var hasItems: Bool {
         guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
@@ -173,7 +177,7 @@ extension ItemsViewController: UITableViewDataSource {
         guard editingStyle == .delete else { return }
         
         let item = fetchedResultsController.object(at: indexPath)
-        
+        item.removeNotification()
         list?.managedObjectContext?.delete(item)
     }
 }

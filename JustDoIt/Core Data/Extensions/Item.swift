@@ -7,13 +7,37 @@
 //
 
 import Foundation
+import UserNotifications
 
 extension Item {
     
+    //MARK: - User notifications methods
+    
     func scheduleNotification() {
-        if let dueDate = dueDate, shouldRemind && dueDate > Date() {
-            print("We should shedule notification")
+        removeNotification()
+        
+        if let dueDate = self.dueDate, self.shouldRemind && dueDate > Date() {
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Reminder:"
+            content.body = self.name!
+            content.sound = UNNotificationSound.default
+            
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.month, .day, .hour, .minute], from: dueDate)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: self.uid!, content: content, trigger: trigger)
+            
+            let center = UNUserNotificationCenter.current()
+            center.add(request, withCompletionHandler: nil)
         }
+    }
+    
+    func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [self.uid!])
     }
     
 }

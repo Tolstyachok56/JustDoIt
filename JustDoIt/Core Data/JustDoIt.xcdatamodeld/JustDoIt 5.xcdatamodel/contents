@@ -5,6 +5,7 @@
         <attribute name="isChecked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="shouldRemind" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uid" attributeType="String" syncable="YES"/>
         <relationship name="list" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="items" inverseEntity="List" syncable="YES"/>
     </entity>
     <entity name="List" representedClassName="List" syncable="YES" codeGenerationType="class">
@@ -13,7 +14,7 @@
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Item" inverseName="list" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-54" positionY="0" width="128" height="120"/>
+        <element name="Item" positionX="-54" positionY="0" width="128" height="135"/>
         <element name="List" positionX="-237.734375" positionY="-1.31640625" width="128" height="90"/>
     </elements>
 </model>

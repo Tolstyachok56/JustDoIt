@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ItemViewController: UIViewController {
     
@@ -108,8 +109,13 @@ class ItemViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func toggleShouldRemindSwitch(_ sender: UISwitch) {
+        nameTextField.resignFirstResponder()
         item?.shouldRemind = sender.isOn
         updateDatePicker()
+        if shouldRemindSwitch.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in })
+        }
     }
     
     @IBAction func dueDateChanged(_ sender: UIDatePicker) {

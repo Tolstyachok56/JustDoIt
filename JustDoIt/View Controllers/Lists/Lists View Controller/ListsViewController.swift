@@ -28,6 +28,8 @@ class ListsViewController: UIViewController {
     
     private var coreDataManager = CoreDataManager(modelName: "JustDoIt")
     
+    //MARK: -
+    
     private lazy var fetchedResultsController: NSFetchedResultsController<List> = {
         let fetchRequest: NSFetchRequest<List> = List.fetchRequest()
         
@@ -181,6 +183,11 @@ extension ListsViewController: UITableViewDataSource {
         
         let list = fetchedResultsController.object(at: indexPath)
         
+        if let items = list.items as? Set<Item> {
+            for item in items {
+                item.removeNotification()
+            }
+        }
         coreDataManager.mainManagedObjectContext.delete(list)
     }
     

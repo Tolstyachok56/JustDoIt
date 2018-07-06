@@ -26,6 +26,8 @@ class AddListViewController: UIViewController {
     
     var managedObjectContext: NSManagedObjectContext?
     
+    //MARK: -
+    
     var iconName: String = "NoIcon"
     
     //MARK: - View life cycle

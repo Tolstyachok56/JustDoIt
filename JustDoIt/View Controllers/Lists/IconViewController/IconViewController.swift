@@ -34,6 +34,8 @@ class IconViewController: UIViewController {
     
     var delegate: IconViewControllerDelegate?
     
+    //MARK: -
+    
     var iconName: String?
     
     //MARK: - Collection view settings
