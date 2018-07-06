@@ -37,7 +37,7 @@ class ItemsViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
 
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Item.isChecked), ascending: true),
-                                        NSSortDescriptor(key: #keyPath(Item.name), ascending: true)]
+                                        NSSortDescriptor(key: #keyPath(Item.createdDate), ascending: false)]
         
         fetchRequest.predicate = NSPredicate(format: "list == %@", self.list!)
 
@@ -55,6 +55,14 @@ class ItemsViewController: UIViewController {
     private var hasItems: Bool {
         guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
         return fetchedObjects.count > 0
+    }
+    
+    //MARK: -
+    
+    var dueDateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
+        return dateFormatter
     }
     
     //MARK: - View life cycle
@@ -135,16 +143,18 @@ class ItemsViewController: UIViewController {
         let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
         if item.isChecked {
-            cell.checkmarkLabel.isHidden = false
             attributedString.append(NSAttributedString(string: item.name!, attributes: strikeAttributes))
+            cell.checkmarkLabel.text = "✓"
         } else {
-            cell.checkmarkLabel.isHidden = true
             attributedString.append(NSAttributedString(string: item.name!, attributes: nil))
+            cell.checkmarkLabel.text = "❍"
         }
         
         cell.nameLabel.attributedText = attributedString
-        
         cell.checkmarkLabel.textColor = view.tintColor
+        
+        cell.dueDateLabel.isHidden = item.isChecked || !item.shouldRemind
+        cell.dueDateLabel.text = "Reminder: " + dueDateFormatter.string(from: item.dueDate!)
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {
@@ -192,7 +202,6 @@ extension ItemsViewController: UITableViewDelegate {
         let item = fetchedResultsController.object(at: indexPath)
         
         item.isChecked = !item.isChecked
-        
         item.scheduleNotification()
     }
     

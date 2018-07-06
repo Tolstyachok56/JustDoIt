@@ -98,6 +98,7 @@ class AddItemViewController: UIViewController {
         item.shouldRemind = shouldRemindSwitch.isOn
         item.dueDate = datePicker.date
         item.uid = UUID().uuidString
+        item.createdDate = Date()
         list?.addToItems(item)
         
         item.scheduleNotification()
@@ -110,7 +111,7 @@ class AddItemViewController: UIViewController {
         updateDatePicker()
         if shouldRemindSwitch.isOn {
             let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in })
+            center.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in })
         }
     }
     

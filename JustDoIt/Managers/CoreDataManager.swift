@@ -74,6 +74,7 @@ final class CoreDataManager {
     
     @objc func saveChanges(_ notification: Notification) {
         saveChanges()
+        print("Core Data Manager: All changes has been saved")
     }
     
     //MARK: - Helper methods

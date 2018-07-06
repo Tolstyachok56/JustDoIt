@@ -53,6 +53,7 @@
 		0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		04C8F66C20EF789D00A8B7B4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		04C8F66E20EF8CE500A8B7B4 /* JustDoIt 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 5.xcdatamodel"; sourceTree = "<group>"; };
+		04C8F66F20EFBB7C00A8B7B4 /* JustDoIt 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 6.xcdatamodel"; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -569,13 +570,14 @@
 		044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				04C8F66F20EFBB7C00A8B7B4 /* JustDoIt 6.xcdatamodel */,
 				04C8F66E20EF8CE500A8B7B4 /* JustDoIt 5.xcdatamodel */,
 				04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */,
 				0489F2F120E2397200A768C8 /* JustDoIt 3.xcdatamodel */,
 				044DB3D320DD1284001A464F /* JustDoIt 2.xcdatamodel */,
 				044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */,
 			);
-			currentVersion = 04C8F66E20EF8CE500A8B7B4 /* JustDoIt 5.xcdatamodel */;
+			currentVersion = 04C8F66F20EFBB7C00A8B7B4 /* JustDoIt 6.xcdatamodel */;
 			path = JustDoIt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
