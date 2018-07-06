@@ -25,6 +25,7 @@
 		044DB3D220DD033F001A464F /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB3D120DD033F001A464F /* Items.storyboard */; };
 		0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489F2F320E2448800A768C8 /* IconViewController.swift */; };
 		0489F2FB20E25CF000A768C8 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */; };
+		04C8F66D20EF789D00A8B7B4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F66C20EF789D00A8B7B4 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		0489F2F120E2397200A768C8 /* JustDoIt 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 3.xcdatamodel"; sourceTree = "<group>"; };
 		0489F2F320E2448800A768C8 /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
 		0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
+		04C8F66C20EF789D00A8B7B4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		044DB3A820DBD1A7001A464F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				04C8F66B20EF788900A8B7B4 /* Extensions */,
 				044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */,
 			);
 			path = "Core Data";
@@ -266,6 +269,14 @@
 			path = IconCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		04C8F66B20EF788900A8B7B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04C8F66C20EF789D00A8B7B4 /* Item.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,6 +359,7 @@
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
 				044DB3CC20DCF6CD001A464F /* AddItemViewController.swift in Sources */,
 				044DB3CE20DCF6DB001A464F /* ItemsViewController.swift in Sources */,
+				04C8F66D20EF789D00A8B7B4 /* Item.swift in Sources */,
 				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
 				044DB3C320DCF0AB001A464F /* ListViewController.swift in Sources */,
 				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,

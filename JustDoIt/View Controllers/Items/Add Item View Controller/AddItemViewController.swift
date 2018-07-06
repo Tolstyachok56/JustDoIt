@@ -14,10 +14,21 @@ class AddItemViewController: UIViewController {
     //MARK: - Properties
     
     @IBOutlet var nameTextField: UITextField!
-
+    @IBOutlet var shouldRemindSwitch: UISwitch!
+    @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet var datePicker: UIDatePicker!
+    
     //MARK: -
     
     var list: List?
+    
+    //MARK: -
+    
+    var dueDateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
+        return dateFormatter
+    }
     
     //MARK: - View life cycle
     
@@ -38,11 +49,37 @@ class AddItemViewController: UIViewController {
     
     private func setupView() {
         setupBarButtonItems()
+        setupShouldRemindSwitch()
+        setupDueDateLabel()
+        setupDatePicker()
     }
     
     private func setupBarButtonItems() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
     }
+    
+    private func setupShouldRemindSwitch() {
+        shouldRemindSwitch.isOn = false
+    }
+    
+    private func setupDueDateLabel() {
+        dueDateLabel.text = dueDateFormatter.string(from: Date())
+    }
+    
+    private func setupDatePicker() {
+        datePicker.date = Date()
+        updateDatePicker()
+    }
+    
+    private func updateDueDateLabel() {
+        let dueDate = datePicker.date
+        dueDateLabel.text = dueDateFormatter.string(from: dueDate)
+    }
+    
+    private func updateDatePicker() {
+        datePicker.isHidden = !shouldRemindSwitch.isOn
+    }
+    
     //MARK: - Actions
     
     @objc private func save(_ sender: UIBarButtonItem) {
@@ -57,9 +94,21 @@ class AddItemViewController: UIViewController {
         
         item.name = name
         item.isChecked = false
+        item.shouldRemind = shouldRemindSwitch.isOn
+        item.dueDate = datePicker.date
         list?.addToItems(item)
         
+        item.scheduleNotification()
+        
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func toggleShouldRemindSwitch(_ sender: UISwitch) {
+        updateDatePicker()
+    }
+    
+    @IBAction func dueDateChanged(_ sender: UIDatePicker) {
+        updateDueDateLabel()
     }
 
 }

@@ -50,6 +50,9 @@ class ItemViewController: UIViewController {
         if let name = nameTextField.text, !name.isEmpty {
             item?.name = name
         }
+        
+        item?.scheduleNotification()
+        
     }
     
     //MARK: - View methods
