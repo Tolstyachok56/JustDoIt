@@ -16,7 +16,7 @@ extension Item {
     func scheduleNotification() {
         removeNotification()
         
-        if let dueDate = self.dueDate, self.shouldRemind && dueDate > Date() {
+        if let dueDate = self.dueDate, self.shouldRemind && dueDate > Date() && isChecked == false {
             
             let content = UNMutableNotificationContent()
             content.title = "Reminder:"
@@ -32,12 +32,14 @@ extension Item {
             
             let center = UNUserNotificationCenter.current()
             center.add(request, withCompletionHandler: nil)
+            print("Set notification for itemID \(self.uid!)")
         }
     }
     
     func removeNotification() {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [self.uid!])
+        print("Removed notification for itemID \(self.uid!)")
     }
     
 }

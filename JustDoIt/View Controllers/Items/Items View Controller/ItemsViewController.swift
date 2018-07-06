@@ -192,6 +192,8 @@ extension ItemsViewController: UITableViewDelegate {
         let item = fetchedResultsController.object(at: indexPath)
         
         item.isChecked = !item.isChecked
+        
+        item.scheduleNotification()
     }
     
 }
