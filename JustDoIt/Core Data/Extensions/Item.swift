@@ -11,6 +11,15 @@ import UserNotifications
 
 extension Item {
     
+    //MARK: - Static properties
+    
+    static var dueDateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }
+    
     //MARK: - User notifications methods
     
     func scheduleNotification() {

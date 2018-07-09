@@ -59,9 +59,10 @@ class ItemsViewController: UIViewController {
     
     //MARK: -
     
-    var dueDateFormatter: DateFormatter {
+    var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
         return dateFormatter
     }
     
@@ -154,7 +155,7 @@ class ItemsViewController: UIViewController {
         cell.checkmarkLabel.textColor = view.tintColor
         
         cell.dueDateLabel.isHidden = item.isChecked || !item.shouldRemind
-        cell.dueDateLabel.text = "Reminder: " + dueDateFormatter.string(from: item.dueDate!)
+        cell.dueDateLabel.text = "Reminder: " + dateFormatter.string(from: item.dueDate!)
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {

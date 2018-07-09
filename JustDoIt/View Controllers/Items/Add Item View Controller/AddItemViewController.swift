@@ -23,14 +23,6 @@ class AddItemViewController: UIViewController {
     
     var list: List?
     
-    //MARK: -
-    
-    var dueDateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
-        return dateFormatter
-    }
-    
     //MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -39,11 +31,6 @@ class AddItemViewController: UIViewController {
         title = "Add Item"
         
         setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        nameTextField.becomeFirstResponder()
     }
     
     //MARK: - View methods
@@ -64,7 +51,7 @@ class AddItemViewController: UIViewController {
     }
     
     private func setupDueDateLabel() {
-        dueDateLabel.text = dueDateFormatter.string(from: Date())
+        dueDateLabel.text = Item.dueDateFormatter.string(from: Date())
     }
     
     private func setupDatePicker() {
@@ -74,7 +61,7 @@ class AddItemViewController: UIViewController {
     
     private func updateDueDateLabel() {
         let dueDate = datePicker.date
-        dueDateLabel.text = dueDateFormatter.string(from: dueDate)
+        dueDateLabel.text = Item.dueDateFormatter.string(from: dueDate)
     }
     
     private func updateDatePicker() {

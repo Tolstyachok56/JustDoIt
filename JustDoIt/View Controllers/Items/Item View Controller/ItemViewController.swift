@@ -22,14 +22,6 @@ class ItemViewController: UIViewController {
     
     var item: Item?
     
-    //MARK: -
-    
-    var dueDateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, YYYY HH:mm"
-        return dateFormatter
-    }
-    
     //MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -38,11 +30,6 @@ class ItemViewController: UIViewController {
         title = "Edit Item"
         
         setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        nameTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,10 +82,10 @@ class ItemViewController: UIViewController {
     private func updateDueDateLabel() {
         guard let dueDate = item?.dueDate else {
             let now = Date()
-            dueDateLabel.text = dueDateFormatter.string(from: now)
+            dueDateLabel.text = Item.dueDateFormatter.string(from: now)
             return
         }
-        dueDateLabel.text = dueDateFormatter.string(from: dueDate)
+        dueDateLabel.text = Item.dueDateFormatter.string(from: dueDate)
     }
     
     private func updateDatePicker() {
