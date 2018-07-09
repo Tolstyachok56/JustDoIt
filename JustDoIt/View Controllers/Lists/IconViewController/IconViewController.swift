@@ -18,12 +18,31 @@ class IconViewController: UIViewController {
     
     private enum IconName: String, CaseIterable {
         case NoIcon = "NoIcon"
+        
+        case Airport = "Airport"
+        case Animals = "Animals"
         case Appointments = "Appointments"
+        case Baby = "Baby"
         case Birthdays = "Birthdays"
-        case Chores = "Chores"
+        case Briefcase = "Briefcase"
+        case Charts = "Charts"
+        case Cloakroom = "Cloakroom"
+        case Documents = "Documents"
+        case Family = "Family"
         case Folder = "Folder"
         case Groceries = "Groceries"
-        case Trips = "Trips"
+        case Heart = "Heart"
+        case House = "House"
+        case Housekeeping = "Housekeeping"
+        case Ideas = "Ideas"
+        case MapMarker = "MapMarker"
+        case Medicine = "Medicine"
+        case Messages = "Messages"
+        case MoneyBox = "MoneyBox"
+        case Payments = "Payments"
+        case Tickets = "Tickets"
+        case Trash = "Trash"
+        
     }
     
     //MARK: - Properties
@@ -40,9 +59,9 @@ class IconViewController: UIViewController {
     
     //MARK: - Collection view settings
     
-    let maxIconWidth: CGFloat = 72
-    let minSpacing: CGFloat = 2
-    let sectionInset: CGFloat = 2
+    let maxIconWidth: CGFloat = 58
+    let minSpacing: CGFloat = 3
+    let sectionInset: CGFloat = 3
     
     //MARK: - View life cycle
 
