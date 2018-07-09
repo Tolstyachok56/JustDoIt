@@ -37,7 +37,7 @@ class ItemsViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
 
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Item.isChecked), ascending: true),
-                                        NSSortDescriptor(key: #keyPath(Item.createdDate), ascending: false)]
+                                        NSSortDescriptor(key: #keyPath(Item.createdDate), ascending: true)]
         
         fetchRequest.predicate = NSPredicate(format: "list == %@", self.list!)
 
@@ -140,20 +140,24 @@ class ItemsViewController: UIViewController {
     private func configure(_ cell:  ItemTableViewCell, at indexPath: IndexPath) {
         let item = fetchedResultsController.object(at: indexPath)
         
+        //nameLabel & checkmarkLabel
         let attributedString = NSMutableAttributedString()
         let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
         if item.isChecked {
             attributedString.append(NSAttributedString(string: item.name!, attributes: strikeAttributes))
             cell.checkmarkLabel.text = "✓"
+            cell.nameLabel.textColor = UIColor.lightGray
         } else {
             attributedString.append(NSAttributedString(string: item.name!, attributes: nil))
             cell.checkmarkLabel.text = "❍"
+            cell.nameLabel.textColor = UIColor.black
         }
         
         cell.nameLabel.attributedText = attributedString
         cell.checkmarkLabel.textColor = view.tintColor
         
+        //dueDateLabel
         cell.dueDateLabel.isHidden = item.isChecked || !item.shouldRemind
         cell.dueDateLabel.text = "Reminder: " + dateFormatter.string(from: item.dueDate!)
     }
