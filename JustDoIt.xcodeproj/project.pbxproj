@@ -24,8 +24,8 @@
 		044DB3D020DCF6EC001A464F /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3CF20DCF6EC001A464F /* ItemTableViewCell.swift */; };
 		044DB3D220DD033F001A464F /* Items.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB3D120DD033F001A464F /* Items.storyboard */; };
 		0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489F2F320E2448800A768C8 /* IconViewController.swift */; };
-		0489F2FB20E25CF000A768C8 /* IconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */; };
 		04C8F66D20EF789D00A8B7B4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F66C20EF789D00A8B7B4 /* Item.swift */; };
+		04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,10 +50,10 @@
 		044DB3D320DD1284001A464F /* JustDoIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 2.xcdatamodel"; sourceTree = "<group>"; };
 		0489F2F120E2397200A768C8 /* JustDoIt 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 3.xcdatamodel"; sourceTree = "<group>"; };
 		0489F2F320E2448800A768C8 /* IconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconViewController.swift; sourceTree = "<group>"; };
-		0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionViewCell.swift; sourceTree = "<group>"; };
 		04C8F66C20EF789D00A8B7B4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		04C8F66E20EF8CE500A8B7B4 /* JustDoIt 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 5.xcdatamodel"; sourceTree = "<group>"; };
 		04C8F66F20EFBB7C00A8B7B4 /* JustDoIt 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 6.xcdatamodel"; sourceTree = "<group>"; };
+		04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableViewCell.swift; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +182,7 @@
 				044DB3B020DBD25E001A464F /* Lists View Controller */,
 				044DB3BA20DCE498001A464F /* Add List View Controller */,
 				044DB3C120DCF05C001A464F /* List View Controller */,
-				0489F2F220E2441500A768C8 /* IconViewController */,
+				0489F2F220E2441500A768C8 /* Icon View Controller */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -254,21 +254,13 @@
 			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
-		0489F2F220E2441500A768C8 /* IconViewController */ = {
+		0489F2F220E2441500A768C8 /* Icon View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0489F2F320E2448800A768C8 /* IconViewController.swift */,
-				0489F2F920E25CCD00A768C8 /* IconCollectionViewCell */,
+				04C8F67020F3A79200A8B7B4 /* Icon Table View Cell */,
 			);
-			path = IconViewController;
-			sourceTree = "<group>";
-		};
-		0489F2F920E25CCD00A768C8 /* IconCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				0489F2FA20E25CF000A768C8 /* IconCollectionViewCell.swift */,
-			);
-			path = IconCollectionViewCell;
+			path = "Icon View Controller";
 			sourceTree = "<group>";
 		};
 		04C8F66B20EF788900A8B7B4 /* Extensions */ = {
@@ -277,6 +269,14 @@
 				04C8F66C20EF789D00A8B7B4 /* Item.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04C8F67020F3A79200A8B7B4 /* Icon Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */,
+			);
+			path = "Icon Table View Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +356,6 @@
 				044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */,
 				044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */,
 				0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */,
-				0489F2FB20E25CF000A768C8 /* IconCollectionViewCell.swift in Sources */,
 				044DB3D020DCF6EC001A464F /* ItemTableViewCell.swift in Sources */,
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
 				044DB3CC20DCF6CD001A464F /* AddItemViewController.swift in Sources */,
@@ -365,6 +364,7 @@
 				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
 				044DB3C320DCF0AB001A464F /* ListViewController.swift in Sources */,
 				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,
+				04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */,
 				044DB3CA20DCF6BD001A464F /* ItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
