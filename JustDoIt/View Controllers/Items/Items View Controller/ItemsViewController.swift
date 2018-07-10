@@ -165,6 +165,28 @@ class ItemsViewController: UIViewController {
     @objc private func add(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segue.AddItem, sender: sender)
     }
+    
+    //MARK: - Actions
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        guard let listName = list?.name else { return }
+//        guard let listItems = list?.items as? Set<Item> else { return }
+        guard let listItems = fetchedResultsController.fetchedObjects else { return }
+        
+        var items: [String] = []
+        for item in listItems{
+            if !item.isChecked {
+                items.append(item.name!)
+            }
+        }
+        
+        let text = "\(listName):\n• \(items.joined(separator: "\n• "))"
+        
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
 
 }
 

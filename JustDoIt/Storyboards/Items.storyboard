@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tBB-rz-nxe">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ItemTableViewCell" rowHeight="60" id="VK4-6W-jmD" customClass="ItemTableViewCell" customModule="JustDoIt" customModuleProvider="target">
@@ -87,15 +87,31 @@
                                     <outlet property="delegate" destination="7gK-0S-Xdf" id="WUu-Pe-ZvN"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlp-bV-AoA">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7Qz-Pr-BI2"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="action" id="6bb-DI-SNE">
+                                        <connections>
+                                            <action selector="share:" destination="7gK-0S-Xdf" id="xNV-yv-p4L"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tBB-rz-nxe" firstAttribute="trailing" secondItem="7ta-HP-u89" secondAttribute="trailing" id="GKm-ee-NbW"/>
                             <constraint firstItem="tBB-rz-nxe" firstAttribute="top" secondItem="7ta-HP-u89" secondAttribute="top" id="N8C-zk-xlR"/>
+                            <constraint firstItem="Qlp-bV-AoA" firstAttribute="top" secondItem="tBB-rz-nxe" secondAttribute="bottom" id="PE4-Y7-fYF"/>
                             <constraint firstItem="7ta-HP-u89" firstAttribute="trailing" secondItem="5vM-N0-qUh" secondAttribute="trailing" constant="20" id="ReO-1F-TLn"/>
                             <constraint firstItem="tBB-rz-nxe" firstAttribute="leading" secondItem="7ta-HP-u89" secondAttribute="leading" id="SPX-t4-hV8"/>
                             <constraint firstItem="5vM-N0-qUh" firstAttribute="centerY" secondItem="HAY-h8-5Yc" secondAttribute="centerY" id="V1W-Sm-Yp2"/>
-                            <constraint firstItem="tBB-rz-nxe" firstAttribute="bottom" secondItem="7ta-HP-u89" secondAttribute="bottom" id="uzR-jF-2z7"/>
+                            <constraint firstItem="Qlp-bV-AoA" firstAttribute="trailing" secondItem="7ta-HP-u89" secondAttribute="trailing" id="ewB-Gg-55I"/>
+                            <constraint firstItem="Qlp-bV-AoA" firstAttribute="leading" secondItem="7ta-HP-u89" secondAttribute="leading" id="gZy-e7-ls1"/>
+                            <constraint firstItem="Qlp-bV-AoA" firstAttribute="bottom" secondItem="7ta-HP-u89" secondAttribute="bottom" id="pYe-WO-7aA"/>
                             <constraint firstItem="5vM-N0-qUh" firstAttribute="leading" secondItem="7ta-HP-u89" secondAttribute="leading" constant="20" id="xr1-WR-wfq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ta-HP-u89"/>
