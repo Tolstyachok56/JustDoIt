@@ -47,8 +47,9 @@ class AddListViewController: UIViewController {
     }
     
     private func setupIconImageView() {
-        iconImageView.layer.borderWidth = CGFloat(1.0)
-        iconImageView.layer.cornerRadius = CGFloat(5)
+        iconImageView.layer.borderWidth = CGFloat(0.25)
+        iconImageView.layer.cornerRadius = CGFloat(5.0)
+        iconImageView.layer.borderColor = UIColor.lightGray.cgColor
         
         updateIconImageView()
     }

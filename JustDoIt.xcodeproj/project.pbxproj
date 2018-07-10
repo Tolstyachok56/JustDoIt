@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				0489F2F320E2448800A768C8 /* IconViewController.swift */,
-				04C8F67020F3A79200A8B7B4 /* Icon Table View Cell */,
+				04C8F67020F3A79200A8B7B4 /* Table View Cells */,
 			);
 			path = "Icon View Controller";
 			sourceTree = "<group>";
@@ -271,12 +271,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		04C8F67020F3A79200A8B7B4 /* Icon Table View Cell */ = {
+		04C8F67020F3A79200A8B7B4 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
 				04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */,
 			);
-			path = "Icon Table View Cell";
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
