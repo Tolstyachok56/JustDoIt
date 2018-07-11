@@ -13,9 +13,9 @@ class TaskViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var titleTextField: UITextField!
     @IBOutlet var shouldRemindSwitch: UISwitch!
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var dueDatePicker: UIDatePicker!
     @IBOutlet var dueDateButton: UIButton!
     
     //MARK: -
@@ -35,7 +35,7 @@ class TaskViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let title = nameTextField.text, !title.isEmpty {
+        if let title = titleTextField.text, !title.isEmpty {
             task?.title = title
         }
         
@@ -55,7 +55,7 @@ class TaskViewController: UIViewController {
     }
     
     private func setupNameTextField() {
-        nameTextField.text = task?.title
+        titleTextField.text = task?.title
     }
     
     private func setupShouldRemindSwitch() {
@@ -68,9 +68,9 @@ class TaskViewController: UIViewController {
     
     private func setupDatePicker() {
         if let dueDate = task?.dueDate {
-            datePicker.date = dueDate
+            dueDatePicker.date = dueDate
         }
-        datePicker.isHidden = true
+        dueDatePicker.isHidden = true
     }
     
     //update
@@ -95,16 +95,16 @@ class TaskViewController: UIViewController {
     
     private func updateDatePicker() {
         guard let shouldRemind = task?.shouldRemind else {
-            datePicker.isHidden = true
+            dueDatePicker.isHidden = true
             return
         }
-        datePicker.isHidden = !shouldRemind
+        dueDatePicker.isHidden = !shouldRemind
     }
     
     //MARK: - Actions
     
     @IBAction private func toggleShouldRemindSwitch(_ sender: UISwitch) {
-        nameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
         
         task?.shouldRemind = sender.isOn
         updateDueDateButton()
@@ -121,7 +121,7 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction private func dueDateButtonPressed(_ sender: UIButton) {
-        datePicker.isHidden = !datePicker.isHidden
+        dueDatePicker.isHidden = !dueDatePicker.isHidden
     }
     
 }
@@ -131,12 +131,12 @@ class TaskViewController: UIViewController {
 extension TaskViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        datePicker.isHidden = true
+        dueDatePicker.isHidden = true
     }
     
 }

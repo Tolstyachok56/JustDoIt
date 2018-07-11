@@ -42,8 +42,15 @@ class AddListViewController: UIViewController {
     
     //MARK: - View methods
     
+    //setup
+    
     private func setupView() {
         setupIconImageView()
+        setupNameTextField()
+    }
+    
+    private func setupNameTextField() {
+        nameTextField.becomeFirstResponder()
     }
     
     private func setupIconImageView() {
@@ -53,6 +60,8 @@ class AddListViewController: UIViewController {
         
         updateIconImageView()
     }
+    
+    //update
     
     private func updateIconImageView() {
         iconImageView.image = UIImage(named: iconName)

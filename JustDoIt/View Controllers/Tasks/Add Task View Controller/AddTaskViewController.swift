@@ -14,9 +14,9 @@ class AddTaskViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var titleTextField: UITextField!
     @IBOutlet var shouldRemindSwitch: UISwitch!
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var dueDatePicker: UIDatePicker!
     @IBOutlet var dueDateButton: UIButton!
     
     //MARK: -
@@ -38,10 +38,15 @@ class AddTaskViewController: UIViewController {
     //setup
     
     private func setupView() {
+        setupNameTextField()
         setupBarButtonItems()
         setupShouldRemindSwitch()
         setupDatePicker()
         setupDueDateButton()
+    }
+    
+    private func setupNameTextField() {
+        titleTextField.becomeFirstResponder()
     }
     
     private func setupBarButtonItems() {
@@ -57,14 +62,14 @@ class AddTaskViewController: UIViewController {
     }
     
     private func setupDatePicker() {
-        datePicker.date = Date()
-        datePicker.isHidden = true
+        dueDatePicker.date = Date()
+        dueDatePicker.isHidden = true
     }
     
     //update
     
     private func updateDueDateButton() {
-        dueDateButton.setTitle(Task.dueDateFormatter.string(from: datePicker.date), for: .normal)
+        dueDateButton.setTitle(Task.dueDateFormatter.string(from: dueDatePicker.date), for: .normal)
         dueDateButton.isEnabled = shouldRemindSwitch.isOn
     }
         
@@ -73,7 +78,7 @@ class AddTaskViewController: UIViewController {
     @objc private func save(_ sender: UIBarButtonItem) {
         guard let managedObjectContext = list?.managedObjectContext else { return }
         
-        guard let title = nameTextField.text, !title.isEmpty else {
+        guard let title = titleTextField.text, !title.isEmpty else {
             showAlert(withTitle: "Name missing", andMessage: "Your task doesn't have any title")
             return
         }
@@ -83,7 +88,7 @@ class AddTaskViewController: UIViewController {
         task.title = title
         task.isChecked = false
         task.shouldRemind = shouldRemindSwitch.isOn
-        task.dueDate = datePicker.date
+        task.dueDate = dueDatePicker.date
         task.uid = UUID().uuidString
         task.createdDate = Date()
         list?.addToTasks(task)
@@ -94,7 +99,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction private func toggleShouldRemindSwitch(_ sender: UISwitch) {
-        nameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
 
         updateDueDateButton()
         
@@ -109,7 +114,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func dueDateButtonPressed(_ sender: UIButton) {
-        datePicker.isHidden = !datePicker.isHidden
+        dueDatePicker.isHidden = !dueDatePicker.isHidden
     }
     
 }
@@ -119,12 +124,12 @@ class AddTaskViewController: UIViewController {
 extension AddTaskViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        datePicker.isHidden = true
+        dueDatePicker.isHidden = true
     }
     
 }

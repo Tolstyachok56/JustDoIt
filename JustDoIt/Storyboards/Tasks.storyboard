@@ -199,10 +199,10 @@
                         <viewLayoutGuide key="safeArea" id="74e-N1-aMY"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="MFn-EJ-wCg" id="xqi-WK-Z8i"/>
                         <outlet property="dueDateButton" destination="7rF-ce-7A8" id="s92-W2-cRp"/>
-                        <outlet property="nameTextField" destination="jR4-hv-PVX" id="oLF-ri-5oo"/>
+                        <outlet property="dueDatePicker" destination="MFn-EJ-wCg" id="xqi-WK-Z8i"/>
                         <outlet property="shouldRemindSwitch" destination="sya-cX-0fI" id="5eQ-Cf-ZsT"/>
+                        <outlet property="titleTextField" destination="jR4-hv-PVX" id="oLF-ri-5oo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yxv-ky-6Q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -284,10 +284,10 @@
                         <viewLayoutGuide key="safeArea" id="xIt-Ra-u3i"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="NvA-N0-NH0" id="bJB-jd-kJh"/>
                         <outlet property="dueDateButton" destination="lhe-hn-SL1" id="xcM-XN-gFM"/>
-                        <outlet property="nameTextField" destination="dND-t3-5fr" id="7TK-2L-SUi"/>
+                        <outlet property="dueDatePicker" destination="NvA-N0-NH0" id="bJB-jd-kJh"/>
                         <outlet property="shouldRemindSwitch" destination="NIL-uT-cVJ" id="a0T-wV-6Ft"/>
+                        <outlet property="titleTextField" destination="dND-t3-5fr" id="7TK-2L-SUi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXs-C5-0JV" userLabel="First Responder" sceneMemberID="firstResponder"/>
