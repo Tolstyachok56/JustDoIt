@@ -28,10 +28,10 @@ extension Task {
         if let dueDate = self.dueDate, self.shouldRemind && dueDate > Date() && isChecked == false {
             
             let content = UNMutableNotificationContent()
-            content.title = "Reminder:"
+            content.title = (self.list?.name)!
             content.body = self.title!
             content.sound = UNNotificationSound.default
-//            content.badge = 1
+            content.badge = 1
             
             let calendar = Calendar.current
             let components = calendar.dateComponents([.month, .day, .hour, .minute], from: dueDate)

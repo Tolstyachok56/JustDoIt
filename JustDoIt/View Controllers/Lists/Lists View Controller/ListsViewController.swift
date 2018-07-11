@@ -139,12 +139,12 @@ class ListsViewController: UIViewController {
         
         // number of tasks label
         if let tasks = list.tasks as? Set<Task>, tasks.count > 0 {
-            let unCheckedTasks = Array(tasks).filter { !$0.isChecked }
+            let uncheckedTasks = Array(tasks).filter { !$0.isChecked }
             
-            if unCheckedTasks.count == 0 {
+            if uncheckedTasks.count == 0 {
                 cell.numberOfTasksLabel.text = "All done!"
             } else {
-                cell.numberOfTasksLabel.text = "\(unCheckedTasks.count) remaining"
+                cell.numberOfTasksLabel.text = "\(uncheckedTasks.count) remaining"
             }
         } else {
             cell.numberOfTasksLabel.text = "[No tasks]"

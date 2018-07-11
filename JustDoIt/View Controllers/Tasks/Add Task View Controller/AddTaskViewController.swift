@@ -100,7 +100,7 @@ class AddTaskViewController: UIViewController {
         
         if shouldRemindSwitch.isOn {
             let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in })
+            center.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in })
         }
     }
     
