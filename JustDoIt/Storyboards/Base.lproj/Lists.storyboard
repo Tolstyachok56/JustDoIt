@@ -162,7 +162,7 @@
                         <viewLayoutGuide key="safeArea" id="f75-Cd-sF0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="nx1-kT-f52">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="YhN-CF-vMB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YhN-CF-vMB">
                             <connections>
                                 <action selector="save:" destination="Rga-7R-xde" id="heC-uh-Gyq"/>
                             </connections>
