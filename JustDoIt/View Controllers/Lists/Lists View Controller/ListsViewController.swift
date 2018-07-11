@@ -16,7 +16,7 @@ class ListsViewController: UIViewController {
     private enum Segue {
         static let AddList = "AddList"
         static let List = "List"
-        static let Items = "Items"
+        static let Tasks = "Tasks"
     }
     
     // MARK: - Properties
@@ -113,8 +113,8 @@ class ListsViewController: UIViewController {
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             let list = fetchedResultsController.object(at: indexPath)
             destination.list = list
-        case Segue.Items:
-            guard let destination = segue.destination as? ItemsViewController else { return }
+        case Segue.Tasks:
+            guard let destination = segue.destination as? TasksViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let list = fetchedResultsController.object(at: indexPath)
             destination.list = list
@@ -131,17 +131,17 @@ class ListsViewController: UIViewController {
         // name label
         cell.nameLabel.text = list.name
         
-        // number of items label
-        if let items = list.items as? Set<Item>, items.count > 0 {
-            let unCheckedItems = Array(items).filter { !$0.isChecked }
+        // number of tasks label
+        if let tasks = list.tasks as? Set<Task>, tasks.count > 0 {
+            let unCheckedTasks = Array(tasks).filter { !$0.isChecked }
             
-            if unCheckedItems.count == 0 {
-                cell.numberOfItemsLabel.text = "All done!"
+            if unCheckedTasks.count == 0 {
+                cell.numberOfTasksLabel.text = "All done!"
             } else {
-                cell.numberOfItemsLabel.text = "\(unCheckedItems.count) remaining"
+                cell.numberOfTasksLabel.text = "\(unCheckedTasks.count) remaining"
             }
         } else {
-            cell.numberOfItemsLabel.text = "[No items]"
+            cell.numberOfTasksLabel.text = "[No tasks]"
         }
         
         // icon image view
@@ -183,9 +183,9 @@ extension ListsViewController: UITableViewDataSource {
         
         let list = fetchedResultsController.object(at: indexPath)
         
-        if let items = list.items as? Set<Item> {
-            for item in items {
-                item.removeNotification()
+        if let tasks = list.tasks as? Set<Task> {
+            for task in tasks {
+                task.removeNotification()
             }
         }
         coreDataManager.mainManagedObjectContext.delete(list)

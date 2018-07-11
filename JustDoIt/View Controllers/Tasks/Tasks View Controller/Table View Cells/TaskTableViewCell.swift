@@ -1,5 +1,5 @@
 //
-//  ItemTableViewCell.swift
+//  TaskTableViewCell.swift
 //  JustDoIt
 //
 //  Created by Виктория Бадисова on 22.06.2018.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class TaskTableViewCell: UITableViewCell {
     
     //MARK: - Static properties
     
-    static let reuseIdentifier = "ItemTableViewCell"
+    static let reuseIdentifier = "TaskTableViewCell"
     
     //MARK: - Properties
     

@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  Task.swift
 //  JustDoIt
 //
 //  Created by Виктория Бадисова on 06.07.2018.
@@ -9,7 +9,7 @@
 import Foundation
 import UserNotifications
 
-extension Item {
+extension Task {
     
     //MARK: - Static properties
     
@@ -29,7 +29,7 @@ extension Item {
             
             let content = UNMutableNotificationContent()
             content.title = "Reminder:"
-            content.body = self.name!
+            content.body = self.title!
             content.sound = UNNotificationSound.default
 //            content.badge = 1
             
@@ -42,14 +42,14 @@ extension Item {
             
             let center = UNUserNotificationCenter.current()
             center.add(request, withCompletionHandler: nil)
-            print("Set notification for itemID \(self.uid!)")
+            print("Set notification for taskID \(self.uid!)")
         }
     }
     
     func removeNotification() {
         let center = UNUserNotificationCenter.current()
         center.removePendingNotificationRequests(withIdentifiers: [self.uid!])
-        print("Removed notification for itemID \(self.uid!)")
+        print("Removed notification for taskID \(self.uid!)")
     }
     
 }

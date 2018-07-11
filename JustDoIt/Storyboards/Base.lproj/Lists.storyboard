@@ -74,9 +74,9 @@
                                         <connections>
                                             <outlet property="iconImageView" destination="ZYk-Sx-BUT" id="caT-kj-zQb"/>
                                             <outlet property="nameLabel" destination="orK-Lg-5Fh" id="kvI-zA-R0O"/>
-                                            <outlet property="numberOfItemsLabel" destination="3Bd-nL-mxk" id="lwn-Q2-BJA"/>
+                                            <outlet property="numberOfTasksLabel" destination="3Bd-nL-mxk" id="lwn-Q2-BJA"/>
                                             <segue destination="Hlz-og-BJA" kind="show" identifier="List" trigger="accessoryAction" id="2ZV-Wq-ebd"/>
-                                            <segue destination="9Ry-MW-wxm" kind="show" identifier="Items" id="6t8-hq-bVO"/>
+                                            <segue destination="9Ry-MW-wxm" kind="show" identifier="Tasks" id="6t8-hq-bVO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="1108" y="100.29985007496252"/>
         </scene>
-        <!--Items-->
+        <!--Tasks-->
         <scene sceneID="cP3-GJ-ZTh">
             <objects>
-                <viewControllerPlaceholder storyboardName="Items" id="9Ry-MW-wxm" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Tasks" id="9Ry-MW-wxm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHP-oX-v3j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1153" y="777"/>
@@ -328,6 +328,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r6K-cO-Rit"/>
+        <segue reference="phx-sI-pI9"/>
     </inferredMetricsTieBreakers>
 </document>

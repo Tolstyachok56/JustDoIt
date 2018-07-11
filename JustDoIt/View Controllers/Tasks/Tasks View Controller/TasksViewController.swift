@@ -1,5 +1,5 @@
 //
-//  ItemsViewController.swift
+//  TasksViewController.swift
 //  JustDoIt
 //
 //  Created by Виктория Бадисова on 22.06.2018.
@@ -9,13 +9,13 @@
 import UIKit
 import CoreData
 
-class ItemsViewController: UIViewController {
+class TasksViewController: UIViewController {
     
     //MARK: - Segues
     
     private enum Segue{
-        static let AddItem = "AddItem"
-        static let Item = "Item"
+        static let AddTask = "AddTask"
+        static let Task = "Task"
     }
     
     //MARK: - Properties
@@ -29,15 +29,15 @@ class ItemsViewController: UIViewController {
     
     //MARK: -
     
-    private lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
+    private lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
 
         guard let managedObjectContext = self.list?.managedObjectContext else {
             fatalError("No managed object context found")
         }
-        let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Item.isChecked), ascending: true),
-                                        NSSortDescriptor(key: #keyPath(Item.createdDate), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Task.isChecked), ascending: true),
+                                        NSSortDescriptor(key: #keyPath(Task.createdDate), ascending: true)]
         
         fetchRequest.predicate = NSPredicate(format: "list == %@", self.list!)
 
@@ -52,7 +52,7 @@ class ItemsViewController: UIViewController {
     
     //MARK: -
     
-    private var hasItems: Bool {
+    private var hasTasks: Bool {
         guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
         return fetchedObjects.count > 0
     }
@@ -74,7 +74,7 @@ class ItemsViewController: UIViewController {
         title = list?.name
  
         setupView()
-        fetchItems()
+        fetchTasks()
         updateView()
     }
     
@@ -87,7 +87,7 @@ class ItemsViewController: UIViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = "You don't have any items yet"
+        messageLabel.text = "You don't have any tasks yet"
     }
     
     private func setupBarButtonItems() {
@@ -100,13 +100,13 @@ class ItemsViewController: UIViewController {
     }
     
     private func updateView() {
-        tableView.isHidden = !hasItems
-        messageLabel.isHidden = hasItems
+        tableView.isHidden = !hasTasks
+        messageLabel.isHidden = hasTasks
     }
     
     //MARK: - Fetching
     
-    private func fetchItems() {
+    private func fetchTasks() {
         do {
             try fetchedResultsController.performFetch()
         } catch let fetchError {
@@ -121,15 +121,15 @@ class ItemsViewController: UIViewController {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-        case Segue.AddItem:
-            guard let destination = segue.destination as? AddItemViewController else { return }
+        case Segue.AddTask:
+            guard let destination = segue.destination as? AddTaskViewController else { return }
             destination.list = list
-        case Segue.Item:
-            guard let destination = segue.destination as? ItemViewController else { return }
-            guard let cell = sender as? ItemTableViewCell else { return }
+        case Segue.Task:
+            guard let destination = segue.destination as? TaskViewController else { return }
+            guard let cell = sender as? TaskTableViewCell else { return }
             guard let indexPath = tableView.indexPath(for: cell) else { return }
-            let item = fetchedResultsController.object(at: indexPath)
-            destination.item = item
+            let task = fetchedResultsController.object(at: indexPath)
+            destination.task = task
         default:
             fatalError("Unexpected segue identifier")
         }
@@ -137,19 +137,19 @@ class ItemsViewController: UIViewController {
     
     //MARK: - Helper methods
     
-    private func configure(_ cell:  ItemTableViewCell, at indexPath: IndexPath) {
-        let item = fetchedResultsController.object(at: indexPath)
+    private func configure(_ cell:  TaskTableViewCell, at indexPath: IndexPath) {
+        let task = fetchedResultsController.object(at: indexPath)
         
         //nameLabel & checkmarkLabel
         let attributedString = NSMutableAttributedString()
         let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
-        if item.isChecked {
-            attributedString.append(NSAttributedString(string: item.name!, attributes: strikeAttributes))
+        if task.isChecked {
+            attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
             cell.checkmarkLabel.text = "✓"
             cell.nameLabel.textColor = UIColor.lightGray
         } else {
-            attributedString.append(NSAttributedString(string: item.name!, attributes: nil))
+            attributedString.append(NSAttributedString(string: task.title!, attributes: nil))
             cell.checkmarkLabel.text = "❍"
             cell.nameLabel.textColor = UIColor.black
         }
@@ -158,29 +158,28 @@ class ItemsViewController: UIViewController {
         cell.checkmarkLabel.textColor = view.tintColor
         
         //dueDateLabel
-        cell.dueDateLabel.isHidden = item.isChecked || !item.shouldRemind
-        cell.dueDateLabel.text = "Reminder: " + dateFormatter.string(from: item.dueDate!)
+        cell.dueDateLabel.isHidden = task.isChecked || !task.shouldRemind
+        cell.dueDateLabel.text = "Reminder: " + dateFormatter.string(from: task.dueDate!)
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Segue.AddItem, sender: sender)
+        performSegue(withIdentifier: Segue.AddTask, sender: sender)
     }
     
     //MARK: - Actions
     
     @IBAction func share(_ sender: UIBarButtonItem) {
         guard let listName = list?.name else { return }
-//        guard let listItems = list?.items as? Set<Item> else { return }
-        guard let listItems = fetchedResultsController.fetchedObjects else { return }
+        guard let listTasks = fetchedResultsController.fetchedObjects else { return }
         
-        var items: [String] = []
-        for item in listItems{
-            if !item.isChecked {
-                items.append(item.name!)
+        var tasks: [String] = []
+        for task in listTasks{
+            if !task.isChecked {
+                tasks.append(task.title!)
             }
         }
         
-        let text = "\(listName):\n• \(items.joined(separator: "\n• "))"
+        let text = "\(listName):\n• \(tasks.joined(separator: "\n• "))"
         
         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
         
@@ -192,7 +191,7 @@ class ItemsViewController: UIViewController {
 
 //MARK: - UITableViewDataSource methods
 
-extension ItemsViewController: UITableViewDataSource {
+extension TasksViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController.sections else { return 0 }
@@ -204,7 +203,7 @@ extension ItemsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemTableViewCell.reuseIdentifier, for: indexPath) as? ItemTableViewCell else { fatalError("Unexpected index path") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.reuseIdentifier, for: indexPath) as? TaskTableViewCell else { fatalError("Unexpected index path") }
         
         configure(cell, at: indexPath)
         return cell
@@ -213,23 +212,23 @@ extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
-        let item = fetchedResultsController.object(at: indexPath)
-        item.removeNotification()
-        list?.managedObjectContext?.delete(item)
+        let task = fetchedResultsController.object(at: indexPath)
+        task.removeNotification()
+        list?.managedObjectContext?.delete(task)
     }
 }
 
 // MARK: - UITableViewDelegate methods
 
-extension ItemsViewController: UITableViewDelegate {
+extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     
-        let item = fetchedResultsController.object(at: indexPath)
+        let task = fetchedResultsController.object(at: indexPath)
         
-        item.isChecked = !item.isChecked
-        item.scheduleNotification()
+        task.isChecked = !task.isChecked
+        task.scheduleNotification()
     }
     
 }
@@ -237,7 +236,7 @@ extension ItemsViewController: UITableViewDelegate {
 
 //MARK: - NSFetchedResultsControllerDelegate methods
 
-extension ItemsViewController: NSFetchedResultsControllerDelegate  {
+extension TasksViewController: NSFetchedResultsControllerDelegate  {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -259,7 +258,7 @@ extension ItemsViewController: NSFetchedResultsControllerDelegate  {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         case .update:
-            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? ItemTableViewCell {
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? TaskTableViewCell {
                 configure(cell, at: indexPath)
             }
         case .move:
