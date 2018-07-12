@@ -27,19 +27,20 @@
 		04C8F66D20EF789D00A8B7B4 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F66C20EF789D00A8B7B4 /* Task.swift */; };
 		04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */; };
 		04DC332F20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */; };
-		04DC333720F75301003678D2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC333620F75301003678D2 /* NotificationCenter.framework */; };
-		04DC333A20F75301003678D2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC333920F75301003678D2 /* TodayViewController.swift */; };
-		04DC333D20F75301003678D2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DC333B20F75301003678D2 /* MainInterface.storyboard */; };
-		04DC334120F75301003678D2 /* JUSTDOIT.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DC333420F75301003678D2 /* JUSTDOIT.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04DC334E20F76939003678D2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC333620F75301003678D2 /* NotificationCenter.framework */; };
+		04DC335120F76939003678D2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC335020F76939003678D2 /* TodayViewController.swift */; };
+		04DC335420F76939003678D2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DC335220F76939003678D2 /* MainInterface.storyboard */; };
+		04DC335820F76939003678D2 /* JustDoIt Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DC334D20F76939003678D2 /* JustDoIt Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04DC333F20F75301003678D2 /* PBXContainerItemProxy */ = {
+		04DC335620F76939003678D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 044DB38A20DBD06C001A464F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 04DC333320F75301003678D2;
-			remoteInfo = JUSTDOIT;
+			remoteGlobalIDString = 04DC334C20F76939003678D2;
+			remoteInfo = "JustDoIt Widget";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,7 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				04DC334120F75301003678D2 /* JUSTDOIT.appex in Embed App Extensions */,
+				04DC335820F76939003678D2 /* JustDoIt Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,11 +86,11 @@
 		04C8F67120F3A7BA00A8B7B4 /* IconTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTableViewCell.swift; sourceTree = "<group>"; };
 		04DC332D20F64D2F003678D2 /* JustDoIt 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 7.xcdatamodel"; sourceTree = "<group>"; };
 		04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = JustDoIt_6_to_7.xcmappingmodel; sourceTree = "<group>"; };
-		04DC333420F75301003678D2 /* JUSTDOIT.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JUSTDOIT.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DC333620F75301003678D2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		04DC333920F75301003678D2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		04DC333C20F75301003678D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		04DC333E20F75301003678D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DC334D20F76939003678D2 /* JustDoIt Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JustDoIt Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DC335020F76939003678D2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		04DC335320F76939003678D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		04DC335520F76939003678D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,11 +102,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04DC333120F75301003678D2 /* Frameworks */ = {
+		04DC334A20F76939003678D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DC333720F75301003678D2 /* NotificationCenter.framework in Frameworks */,
+				04DC334E20F76939003678D2 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				044DB39420DBD06C001A464F /* JustDoIt */,
-				04DC333820F75301003678D2 /* JUSTDOIT */,
+				04DC334F20F76939003678D2 /* JustDoIt Widget */,
 				04DC333520F75301003678D2 /* Frameworks */,
 				044DB39320DBD06C001A464F /* Products */,
 			);
@@ -126,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				044DB39220DBD06C001A464F /* JustDoIt.app */,
-				04DC333420F75301003678D2 /* JUSTDOIT.appex */,
+				04DC334D20F76939003678D2 /* JustDoIt Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,14 +336,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		04DC333820F75301003678D2 /* JUSTDOIT */ = {
+		04DC334F20F76939003678D2 /* JustDoIt Widget */ = {
 			isa = PBXGroup;
 			children = (
-				04DC333920F75301003678D2 /* TodayViewController.swift */,
-				04DC333B20F75301003678D2 /* MainInterface.storyboard */,
-				04DC333E20F75301003678D2 /* Info.plist */,
+				04DC335020F76939003678D2 /* TodayViewController.swift */,
+				04DC335220F76939003678D2 /* MainInterface.storyboard */,
+				04DC335520F76939003678D2 /* Info.plist */,
 			);
-			path = JUSTDOIT;
+			path = "JustDoIt Widget";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,28 +361,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				04DC334020F75301003678D2 /* PBXTargetDependency */,
+				04DC335720F76939003678D2 /* PBXTargetDependency */,
 			);
 			name = JustDoIt;
 			productName = JustDoIt;
 			productReference = 044DB39220DBD06C001A464F /* JustDoIt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		04DC333320F75301003678D2 /* JUSTDOIT */ = {
+		04DC334C20F76939003678D2 /* JustDoIt Widget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04DC334220F75302003678D2 /* Build configuration list for PBXNativeTarget "JUSTDOIT" */;
+			buildConfigurationList = 04DC335920F76939003678D2 /* Build configuration list for PBXNativeTarget "JustDoIt Widget" */;
 			buildPhases = (
-				04DC333020F75301003678D2 /* Sources */,
-				04DC333120F75301003678D2 /* Frameworks */,
-				04DC333220F75301003678D2 /* Resources */,
+				04DC334920F76939003678D2 /* Sources */,
+				04DC334A20F76939003678D2 /* Frameworks */,
+				04DC334B20F76939003678D2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = JUSTDOIT;
-			productName = JUSTDOIT;
-			productReference = 04DC333420F75301003678D2 /* JUSTDOIT.appex */;
+			name = "JustDoIt Widget";
+			productName = "JustDoIt Widget";
+			productReference = 04DC334D20F76939003678D2 /* JustDoIt Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -397,7 +398,7 @@
 					044DB39120DBD06C001A464F = {
 						CreatedOnToolsVersion = 10.0;
 					};
-					04DC333320F75301003678D2 = {
+					04DC334C20F76939003678D2 = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -416,7 +417,7 @@
 			projectRoot = "";
 			targets = (
 				044DB39120DBD06C001A464F /* JustDoIt */,
-				04DC333320F75301003678D2 /* JUSTDOIT */,
+				04DC334C20F76939003678D2 /* JustDoIt Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -433,11 +434,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04DC333220F75301003678D2 /* Resources */ = {
+		04DC334B20F76939003678D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DC333D20F75301003678D2 /* MainInterface.storyboard in Resources */,
+				04DC335420F76939003678D2 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,21 +468,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		04DC333020F75301003678D2 /* Sources */ = {
+		04DC334920F76939003678D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DC333A20F75301003678D2 /* TodayViewController.swift in Sources */,
+				04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */,
+				04DC335120F76939003678D2 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		04DC334020F75301003678D2 /* PBXTargetDependency */ = {
+		04DC335720F76939003678D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 04DC333320F75301003678D2 /* JUSTDOIT */;
-			targetProxy = 04DC333F20F75301003678D2 /* PBXContainerItemProxy */;
+			target = 04DC334C20F76939003678D2 /* JustDoIt Widget */;
+			targetProxy = 04DC335620F76939003678D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -502,10 +504,10 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		04DC333B20F75301003678D2 /* MainInterface.storyboard */ = {
+		04DC335220F76939003678D2 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04DC333C20F75301003678D2 /* Base */,
+				04DC335320F76939003678D2 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -667,19 +669,19 @@
 			};
 			name = Release;
 		};
-		04DC334320F75302003678D2 /* Debug */ = {
+		04DC335A20F76939003678D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
-				INFOPLIST_FILE = JUSTDOIT/Info.plist;
+				INFOPLIST_FILE = "JustDoIt Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.JustDoIt.JUSTDOIT;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vbadisova.JustDoIt.JustDoIt-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -687,19 +689,19 @@
 			};
 			name = Debug;
 		};
-		04DC334420F75302003678D2 /* Release */ = {
+		04DC335B20F76939003678D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
-				INFOPLIST_FILE = JUSTDOIT/Info.plist;
+				INFOPLIST_FILE = "JustDoIt Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.JustDoIt.JUSTDOIT;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vbadisova.JustDoIt.JustDoIt-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -728,11 +730,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04DC334220F75302003678D2 /* Build configuration list for PBXNativeTarget "JUSTDOIT" */ = {
+		04DC335920F76939003678D2 /* Build configuration list for PBXNativeTarget "JustDoIt Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04DC334320F75302003678D2 /* Debug */,
-				04DC334420F75302003678D2 /* Release */,
+				04DC335A20F76939003678D2 /* Debug */,
+				04DC335B20F76939003678D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
