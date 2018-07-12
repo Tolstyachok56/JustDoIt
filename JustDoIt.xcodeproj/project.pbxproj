@@ -32,6 +32,10 @@
 		04DC335420F76939003678D2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DC335220F76939003678D2 /* MainInterface.storyboard */; };
 		04DC335820F76939003678D2 /* JustDoIt Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DC334D20F76939003678D2 /* JustDoIt Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
+		04DC335D20F78419003678D2 /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */; };
+		04DC336420F7859E003678D2 /* ListWidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */; };
+		04DC336520F78A24003678D2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F66C20EF789D00A8B7B4 /* Task.swift */; };
+		04DC336620F78A28003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +95,9 @@
 		04DC335020F76939003678D2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		04DC335320F76939003678D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		04DC335520F76939003678D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWidgetTableViewCell.swift; sourceTree = "<group>"; };
+		04DC336720F78C73003678D2 /* JustDoIt Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "JustDoIt Widget.entitlements"; sourceTree = "<group>"; };
+		04DC336820F78CB1003678D2 /* JustDoIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustDoIt.entitlements; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +157,7 @@
 		044DB3A720DBD0A4001A464F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04DC336820F78CB1003678D2 /* JustDoIt.entitlements */,
 				044DB3A120DBD06D001A464F /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -339,11 +347,53 @@
 		04DC334F20F76939003678D2 /* JustDoIt Widget */ = {
 			isa = PBXGroup;
 			children = (
-				04DC335020F76939003678D2 /* TodayViewController.swift */,
-				04DC335220F76939003678D2 /* MainInterface.storyboard */,
-				04DC335520F76939003678D2 /* Info.plist */,
+				04DC335E20F78514003678D2 /* View Controllers */,
+				04DC335F20F78524003678D2 /* Storyboards */,
+				04DC336020F78530003678D2 /* Supporting Files */,
 			);
 			path = "JustDoIt Widget";
+			sourceTree = "<group>";
+		};
+		04DC335E20F78514003678D2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04DC336120F78568003678D2 /* Today View Controller */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		04DC335F20F78524003678D2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				04DC335220F76939003678D2 /* MainInterface.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		04DC336020F78530003678D2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04DC335520F76939003678D2 /* Info.plist */,
+				04DC336720F78C73003678D2 /* JustDoIt Widget.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04DC336120F78568003678D2 /* Today View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04DC335020F76939003678D2 /* TodayViewController.swift */,
+				04DC336220F78573003678D2 /* Table View Cells */,
+			);
+			path = "Today View Controller";
+			sourceTree = "<group>";
+		};
+		04DC336220F78573003678D2 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,9 +447,19 @@
 				TargetAttributes = {
 					044DB39120DBD06C001A464F = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					04DC334C20F76939003678D2 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -472,8 +532,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DC335D20F78419003678D2 /* JustDoIt.xcdatamodeld in Sources */,
 				04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */,
+				04DC336520F78A24003678D2 /* Task.swift in Sources */,
+				04DC336620F78A28003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */,
 				04DC335120F76939003678D2 /* TodayViewController.swift in Sources */,
+				04DC336420F7859E003678D2 /* ListWidgetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +698,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "JustDoIt/Supporting Files/JustDoIt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt/Supporting Files/Info.plist";
@@ -654,6 +719,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "JustDoIt/Supporting Files/JustDoIt.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt/Supporting Files/Info.plist";
@@ -672,9 +738,10 @@
 		04DC335A20F76939003678D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "JustDoIt Widget/Supporting Files/JustDoIt Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
-				INFOPLIST_FILE = "JustDoIt Widget/Info.plist";
+				INFOPLIST_FILE = "JustDoIt Widget/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -692,9 +759,10 @@
 		04DC335B20F76939003678D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "JustDoIt Widget/Supporting Files/JustDoIt Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
-				INFOPLIST_FILE = "JustDoIt Widget/Info.plist";
+				INFOPLIST_FILE = "JustDoIt Widget/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

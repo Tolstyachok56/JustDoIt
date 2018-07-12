@@ -6,6 +6,8 @@
 	<dict>
 		<key>JustDoIt Widget.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
@@ -18,6 +20,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>044DB39120DBD06C001A464F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>04DC334C20F76939003678D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -11,6 +11,8 @@ import UIKit
 
 final class CoreDataManager {
     
+    static let current = CoreDataManager(modelName: "JustDoIt")
+    
     //MARK: - Properties
     
     private let modelName: String
@@ -47,7 +49,11 @@ final class CoreDataManager {
         let fileManager = FileManager.default
         let storeName = "\(self.modelName).sqlite"
         
-        let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+
+        guard let documentsDirectoryURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.com.vbadisova.JustDoIt.sharingForTodayExtension") else {
+             fatalError("Unable to get documents directory")
+        }
         
         let persistentStoreURL = documentsDirectoryURL.appendingPathComponent(storeName)
         
@@ -64,7 +70,7 @@ final class CoreDataManager {
     
     //MARK: - Initialization
     
-    init(modelName: String) {
+    private init(modelName: String) {
         self.modelName = modelName
         
         setupNotificationHandling()

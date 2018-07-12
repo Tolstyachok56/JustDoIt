@@ -17,15 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Le-nT-cXm">
+                                <rect key="frame" x="139" y="45" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vm5-tT-cIH">
-                                <rect key="frame" x="0.0" y="20.5" width="320" height="89.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListWidgetTableViewCell" id="fEp-iB-2MT" customClass="ListWidgetTableViewCell" customModule="JustDoIt_Widget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fEp-iB-2MT" id="Qz2-pb-aGc">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="M4Y-Lb-cyx" id="PFX-yS-5wf"/>
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="YiM-Dz-iCP"/>
@@ -33,13 +43,12 @@
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" symbolic="YES" id="6Vq-gs-PHe"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="vm5-tT-cIH" secondAttribute="bottom" id="F4h-RE-HN6"/>
+                            <constraint firstItem="0Le-nT-cXm" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="GRB-4t-rCB"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="vm5-tT-cIH" secondAttribute="trailing" id="Ha7-bi-RLH"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" symbolic="YES" id="L8K-9R-egU"/>
+                            <constraint firstItem="0Le-nT-cXm" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="PPk-PA-pPZ"/>
                             <constraint firstItem="vm5-tT-cIH" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="USs-wG-FSY"/>
-                            <constraint firstItem="vm5-tT-cIH" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" id="fcz-yX-U6g"/>
-                            <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" symbolic="YES" id="mYS-Cv-VNx"/>
+                            <constraint firstItem="vm5-tT-cIH" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="bn7-cO-BRI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
@@ -47,8 +56,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="110"/>
                     <connections>
+                        <outlet property="messageLabel" destination="0Le-nT-cXm" id="0gQ-fS-iCY"/>
                         <outlet property="tableView" destination="vm5-tT-cIH" id="3mV-hV-EVo"/>
-                        <outlet property="titleLabel" destination="GcN-lo-r42" id="Imu-0Z-JP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

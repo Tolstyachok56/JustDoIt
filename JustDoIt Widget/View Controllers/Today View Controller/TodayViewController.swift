@@ -1,28 +1,21 @@
 //
-//  ListsViewController.swift
-//  JustDoIt
+//  TodayViewController.swift
+//  JustDoIt Widget
 //
-//  Created by Виктория Бадисова on 21.06.2018.
+//  Created by Виктория Бадисова on 12.07.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
+import NotificationCenter
 import CoreData
 
-class ListsViewController: UIViewController {
-    
-    // MARK: - Segues
-    
-    private enum Segue {
-        static let AddList = "AddList"
-        static let List = "List"
-        static let Tasks = "Tasks"
-    }
+class TodayViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet var messageLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var messageLabel: UILabel!
     
     // MARK: -
     
@@ -51,32 +44,25 @@ class ListsViewController: UIViewController {
     }
     
     // MARK: - View life cycle
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Just Do It"
         
         setupView()
         fetchLists()
         updateView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    }
-    
     // MARK: - View methods
     
     private func setupView() {
+        setupWidget()
         setupMessageLabel()
         setupTableView()
+    }
+    
+    private func setupWidget() {
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
     
     private func setupMessageLabel() {
@@ -104,65 +90,50 @@ class ListsViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        
-        switch identifier {
-        case Segue.AddList:
-            guard let destination = segue.destination as? AddListViewController else { return }
-            destination.managedObjectContext = coreDataManager.mainManagedObjectContext
-        case Segue.List:
-            guard let destination = segue.destination as? ListViewController else { return }
-            guard let cell = sender as? ListTableViewCell else { return }
-            guard let indexPath = tableView.indexPath(for: cell) else { return }
-            let list = fetchedResultsController.object(at: indexPath)
-            destination.list = list
-        case Segue.Tasks:
-            guard let destination = segue.destination as? TasksViewController else { return }
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let list = fetchedResultsController.object(at: indexPath)
-            destination.list = list
-        default:
-            fatalError("Unexpected segue identifier")
-        }
-    }
-
-    //MARK: - Helper methods
+    // MARK: - Helper methods
     
-    private func configure(_ cell: ListTableViewCell, at indexPath: IndexPath) {
+    private func configure(_ cell: ListWidgetTableViewCell, at indexPath: IndexPath) {
         let list = fetchedResultsController.object(at: indexPath)
         
-        // name label
-        cell.nameLabel.text = list.name
+        cell.textLabel?.text = list.name
         
-        // number of tasks label
-        if let tasks = list.tasks as? Set<Task>, tasks.count > 0 {
-            let uncheckedTasks = Array(tasks).filter { !$0.isChecked }
-            
-            if uncheckedTasks.count == 0 {
-                cell.numberOfTasksLabel.text = "All done!"
-            } else {
-                cell.numberOfTasksLabel.text = "\(uncheckedTasks.count) remaining"
-            }
-        } else {
-            cell.numberOfTasksLabel.text = "[No tasks]"
-        }
-        
-        // icon image view
-        if let iconName = list.iconName {
-            cell.iconImageView.image = UIImage(named: iconName)
-        } else {
-            cell.iconImageView.image = UIImage(named: "NoIcon")
-        }
     }
-
+    
+    
 }
 
-// MARK: - UITableViewDataSource methods
+// MARK: - NCWidgetProviding methods
 
-extension ListsViewController: UITableViewDataSource {
+extension TodayViewController: NCWidgetProviding {
+    
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        // Perform any setup necessary in order to update the view.
+        
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+        
+        completionHandler(NCUpdateResult.newData)
+    }
+    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .compact {
+            self.preferredContentSize = maxSize
+        } else if activeDisplayMode == .expanded {
+            
+            var contentHeight = CGFloat(110)
+            let rowHeight = 44
+            if let numberOfLists = fetchedResultsController.fetchedObjects?.count {
+                contentHeight = CGFloat(rowHeight * numberOfLists)
+            }
+            
+            self.preferredContentSize = CGSize(width: maxSize.width, height: contentHeight)
+        }
+    }
+    
+}
+
+extension TodayViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController.sections else { return 0 }
@@ -175,7 +146,7 @@ extension ListsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListTableViewCell.reuseIdentifier, for: indexPath) as? ListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListWidgetTableViewCell.reuseIdentifier, for: indexPath) as? ListWidgetTableViewCell else {
             fatalError("Unexpected Index Path")
         }
         
@@ -184,32 +155,11 @@ extension ListsViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else { return }
-        
-        let list = fetchedResultsController.object(at: indexPath)
-        
-        if let tasks = list.tasks as? Set<Task> {
-            for task in tasks {
-                task.removeNotification()
-            }
-        }
-        coreDataManager.mainManagedObjectContext.delete(list)
-    }
-    
-}
-
-// MARK: - UITableViewDelegate methods
-
-extension ListsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
 }
 
 // MARK: - NSFetchedResultsControllerDelegate methods
 
-extension ListsViewController: NSFetchedResultsControllerDelegate {
+extension TodayViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -230,7 +180,7 @@ extension ListsViewController: NSFetchedResultsControllerDelegate {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         case .update:
-            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? ListTableViewCell {
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? ListWidgetTableViewCell {
                 configure(cell, at: indexPath)
             }
         case .move:
