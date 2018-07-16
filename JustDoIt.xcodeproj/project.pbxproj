@@ -29,13 +29,14 @@
 		04DC332F20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */; };
 		04DC334E20F76939003678D2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DC333620F75301003678D2 /* NotificationCenter.framework */; };
 		04DC335120F76939003678D2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC335020F76939003678D2 /* TodayViewController.swift */; };
-		04DC335420F76939003678D2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DC335220F76939003678D2 /* MainInterface.storyboard */; };
+		04DC335420F76939003678D2 /* Widget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DC335220F76939003678D2 /* Widget.storyboard */; };
 		04DC335820F76939003678D2 /* JustDoIt Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04DC334D20F76939003678D2 /* JustDoIt Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
 		04DC335D20F78419003678D2 /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */; };
-		04DC336420F7859E003678D2 /* ListWidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */; };
+		04DC336420F7859E003678D2 /* TaskWidgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC336320F7859E003678D2 /* TaskWidgetTableViewCell.swift */; };
 		04DC336520F78A24003678D2 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F66C20EF789D00A8B7B4 /* Task.swift */; };
 		04DC336620F78A28003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */; };
+		04DC336920FB8EED003678D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044DB39C20DBD06D001A464F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +94,9 @@
 		04DC333620F75301003678D2 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		04DC334D20F76939003678D2 /* JustDoIt Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "JustDoIt Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DC335020F76939003678D2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		04DC335320F76939003678D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		04DC335320F76939003678D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Widget.storyboard; sourceTree = "<group>"; };
 		04DC335520F76939003678D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWidgetTableViewCell.swift; sourceTree = "<group>"; };
+		04DC336320F7859E003678D2 /* TaskWidgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskWidgetTableViewCell.swift; sourceTree = "<group>"; };
 		04DC336720F78C73003678D2 /* JustDoIt Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "JustDoIt Widget.entitlements"; sourceTree = "<group>"; };
 		04DC336820F78CB1003678D2 /* JustDoIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JustDoIt.entitlements; sourceTree = "<group>"; };
 		04F90E5920E391BE00CDE216 /* JustDoIt 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -147,7 +148,6 @@
 				044DB3AB20DBD1CC001A464F /* Storyboards */,
 				044DB3BD20DCE6B6001A464F /* Extensions */,
 				044DB3AA20DBD1C1001A464F /* Resources */,
-				044DB3A920DBD1B6001A464F /* Managers */,
 				044DB3A820DBD1A7001A464F /* Core Data */,
 				044DB3A720DBD0A4001A464F /* Supporting Files */,
 			);
@@ -166,19 +166,12 @@
 		044DB3A820DBD1A7001A464F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
 				04C8F66B20EF788900A8B7B4 /* Extensions */,
 				044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */,
 				04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */,
 			);
 			path = "Core Data";
-			sourceTree = "<group>";
-		};
-		044DB3A920DBD1B6001A464F /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		044DB3AA20DBD1C1001A464F /* Resources */ = {
@@ -365,7 +358,7 @@
 		04DC335F20F78524003678D2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				04DC335220F76939003678D2 /* MainInterface.storyboard */,
+				04DC335220F76939003678D2 /* Widget.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -391,7 +384,7 @@
 		04DC336220F78573003678D2 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				04DC336320F7859E003678D2 /* ListWidgetTableViewCell.swift */,
+				04DC336320F7859E003678D2 /* TaskWidgetTableViewCell.swift */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -498,7 +491,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DC335420F76939003678D2 /* MainInterface.storyboard in Resources */,
+				04DC336920FB8EED003678D2 /* Assets.xcassets in Resources */,
+				04DC335420F76939003678D2 /* Widget.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +531,7 @@
 				04DC336520F78A24003678D2 /* Task.swift in Sources */,
 				04DC336620F78A28003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */,
 				04DC335120F76939003678D2 /* TodayViewController.swift in Sources */,
-				04DC336420F7859E003678D2 /* ListWidgetTableViewCell.swift in Sources */,
+				04DC336420F7859E003678D2 /* TaskWidgetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,12 +562,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		04DC335220F76939003678D2 /* MainInterface.storyboard */ = {
+		04DC335220F76939003678D2 /* Widget.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04DC335320F76939003678D2 /* Base */,
 			);
-			name = MainInterface.storyboard;
+			name = Widget.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

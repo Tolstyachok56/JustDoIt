@@ -23,10 +23,19 @@ class TodayViewController: UIViewController {
     
     //MARK: -
     
-    private lazy var fetchedResultsController: NSFetchedResultsController<List> = {
-        let fetchRequest: NSFetchRequest<List> = List.fetchRequest()
+    private lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(List.name), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Task.dueDate), ascending: true)]
+        
+        let now = Date()
+        let startDate = Calendar.current.startOfDay(for: now)
+        let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate)
+        
+        let startDueDatePredicate = NSPredicate(format: "dueDate >= %@", startDate as CVarArg)
+        let endDueDatePredicate = NSPredicate(format: "dueDate < %@", endDate! as CVarArg)
+        
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [startDueDatePredicate, endDueDatePredicate])
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.coreDataManager.mainManagedObjectContext,
@@ -38,7 +47,7 @@ class TodayViewController: UIViewController {
     
     // MARK: -
     
-    private var hasLists: Bool {
+    private var hasTasks: Bool {
         guard let fetchedObjects = fetchedResultsController.fetchedObjects else { return false }
         return fetchedObjects.count > 0
     }
@@ -49,7 +58,7 @@ class TodayViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        fetchLists()
+        fetchTasks()
         updateView()
     }
     
@@ -66,7 +75,7 @@ class TodayViewController: UIViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = "You don't have any lists yet"
+        messageLabel.text = "You don't have any tasks today"
     }
     
     private func setupTableView() {
@@ -75,13 +84,13 @@ class TodayViewController: UIViewController {
     }
     
     private func updateView() {
-        tableView.isHidden = !hasLists
-        messageLabel.isHidden = hasLists
+        tableView.isHidden = !hasTasks
+        messageLabel.isHidden = hasTasks
     }
     
     // MARK: - Fetching
     
-    private func fetchLists() {
+    private func fetchTasks() {
         do {
             try self.fetchedResultsController.performFetch()
         } catch let fetchError {
@@ -92,10 +101,21 @@ class TodayViewController: UIViewController {
     
     // MARK: - Helper methods
     
-    private func configure(_ cell: ListWidgetTableViewCell, at indexPath: IndexPath) {
-        let list = fetchedResultsController.object(at: indexPath)
+    private func configure(_ cell: TaskWidgetTableViewCell, at indexPath: IndexPath) {
+        let task = fetchedResultsController.object(at: indexPath)
         
-        cell.textLabel?.text = list.name
+        let attributedString = NSMutableAttributedString()
+        let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+        
+        if task.isChecked {
+            attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
+            cell.nameLabel.textColor = UIColor.lightGray
+        } else {
+            attributedString.append(NSAttributedString(string: task.title!, attributes: nil))
+            cell.nameLabel.textColor = UIColor.black
+        }
+        
+        cell.nameLabel.attributedText = attributedString
         
     }
     
@@ -121,17 +141,17 @@ extension TodayViewController: NCWidgetProviding {
             self.preferredContentSize = maxSize
         } else if activeDisplayMode == .expanded {
             
-            var contentHeight = CGFloat(110)
-            let rowHeight = 44
-            if let numberOfLists = fetchedResultsController.fetchedObjects?.count {
-                contentHeight = CGFloat(rowHeight * numberOfLists)
-            }
+            //TODO: - widget height
+            
+            let contentHeight = tableView.contentSize.height
             
             self.preferredContentSize = CGSize(width: maxSize.width, height: contentHeight)
         }
     }
     
 }
+
+//MARK: - UITableViewDataSource methods
 
 extension TodayViewController: UITableViewDataSource {
     
@@ -146,7 +166,7 @@ extension TodayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListWidgetTableViewCell.reuseIdentifier, for: indexPath) as? ListWidgetTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TaskWidgetTableViewCell.reuseIdentifier, for: indexPath) as? TaskWidgetTableViewCell else {
             fatalError("Unexpected Index Path")
         }
         
@@ -180,7 +200,7 @@ extension TodayViewController: NSFetchedResultsControllerDelegate {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         case .update:
-            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? ListWidgetTableViewCell {
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? TaskWidgetTableViewCell {
                 configure(cell, at: indexPath)
             }
         case .move:
