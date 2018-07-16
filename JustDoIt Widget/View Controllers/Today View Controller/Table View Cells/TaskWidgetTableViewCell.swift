@@ -17,6 +17,7 @@ class TaskWidgetTableViewCell: UITableViewCell {
     //MARK: - Properties
 
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var dueDateLabel: UILabel!
     
     //MARK: - Initialization
     

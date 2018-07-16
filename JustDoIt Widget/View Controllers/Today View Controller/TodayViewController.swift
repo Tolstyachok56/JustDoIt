@@ -109,13 +109,22 @@ class TodayViewController: UIViewController {
         
         if task.isChecked {
             attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
-            cell.nameLabel.textColor = UIColor.lightGray
+            cell.nameLabel.textColor = UIColor.darkGray
+            cell.dueDateLabel.isHidden = true
         } else {
             attributedString.append(NSAttributedString(string: task.title!, attributes: nil))
             cell.nameLabel.textColor = UIColor.black
+            cell.dueDateLabel.isHidden = false
+            if task.dueDate! < Date() {
+                cell.dueDateLabel.textColor = .red
+            } else {
+                cell.dueDateLabel.textColor = .darkGray
+            }
         }
         
         cell.nameLabel.attributedText = attributedString
+        
+        cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
         
     }
     
@@ -127,12 +136,6 @@ class TodayViewController: UIViewController {
 extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     
@@ -175,6 +178,22 @@ extension TodayViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+//MARK: - UITableViewDelegate methods
+
+extension TodayViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Did select row \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let task = fetchedResultsController.object(at: indexPath)
+        
+        task.isChecked = !task.isChecked
+        task.scheduleNotification()
+        
+        coreDataManager.saveChanges()
+    }
 }
 
 // MARK: - NSFetchedResultsControllerDelegate methods

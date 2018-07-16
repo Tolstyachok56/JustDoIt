@@ -48,8 +48,6 @@ final class CoreDataManager {
         
         let fileManager = FileManager.default
         let storeName = "\(self.modelName).sqlite"
-        
-//        let documentsDirectoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 
         guard let documentsDirectoryURL = fileManager.containerURL(forSecurityApplicationGroupIdentifier: "group.com.vbadisova.JustDoIt.sharingForTodayExtension") else {
              fatalError("Unable to get documents directory")
@@ -80,7 +78,7 @@ final class CoreDataManager {
     
     @objc func saveChanges(_ notification: Notification) {
         saveChanges()
-        print("Core Data Manager: All changes has been saved")
+        print("Core Data Manager: All changes has been saved due to notification")
     }
     
     //MARK: - Helper methods
@@ -99,7 +97,7 @@ final class CoreDataManager {
     }
 
     
-    private func saveChanges() {
+    func saveChanges() {
         mainManagedObjectContext.perform({
             do {
                 if self.mainManagedObjectContext.hasChanges {

@@ -57,15 +57,6 @@ class TasksViewController: UIViewController {
         return fetchedObjects.count > 0
     }
     
-    //MARK: -
-    
-    var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter
-    }
-    
     //MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -160,7 +151,7 @@ class TasksViewController: UIViewController {
         
         //dueDateLabel
         cell.dueDateLabel.isHidden = task.isChecked || !task.shouldRemind
-        cell.dueDateLabel.text = "Remind: " + dateFormatter.string(from: task.dueDate!)
+        cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
     }
     
     @objc private func add(_ sender: UIBarButtonItem) {

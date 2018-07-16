@@ -35,21 +35,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81t-7w-zYx">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zvy-uR-z5D">
                                                     <rect key="frame" x="16" y="8" width="288" height="27.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81t-7w-zYx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o20-TZ-QgW">
+                                                            <rect key="frame" x="0.0" y="16" width="288" height="11.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="81t-7w-zYx" firstAttribute="top" secondItem="Qz2-pb-aGc" secondAttribute="top" constant="8" id="2iU-Su-fPw"/>
-                                                <constraint firstItem="81t-7w-zYx" firstAttribute="leading" secondItem="Qz2-pb-aGc" secondAttribute="leading" constant="16" id="Ld5-4q-0Eu"/>
-                                                <constraint firstAttribute="trailing" secondItem="81t-7w-zYx" secondAttribute="trailing" constant="16" id="ePf-QQ-9uB"/>
-                                                <constraint firstAttribute="bottom" secondItem="81t-7w-zYx" secondAttribute="bottom" constant="8" id="oeW-RI-7IA"/>
+                                                <constraint firstItem="zvy-uR-z5D" firstAttribute="leading" secondItem="Qz2-pb-aGc" secondAttribute="leading" constant="16" id="N6b-BR-AR2"/>
+                                                <constraint firstAttribute="trailing" secondItem="zvy-uR-z5D" secondAttribute="trailing" constant="16" id="anp-c0-Ot7"/>
+                                                <constraint firstAttribute="bottom" secondItem="zvy-uR-z5D" secondAttribute="bottom" constant="8" id="kyc-nM-HwP"/>
+                                                <constraint firstItem="zvy-uR-z5D" firstAttribute="top" secondItem="Qz2-pb-aGc" secondAttribute="top" constant="8" id="tyQ-jv-gnO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dueDateLabel" destination="o20-TZ-QgW" id="v0o-bb-H1S"/>
                                             <outlet property="nameLabel" destination="81t-7w-zYx" id="zcZ-cp-VNm"/>
                                         </connections>
                                     </tableViewCell>
