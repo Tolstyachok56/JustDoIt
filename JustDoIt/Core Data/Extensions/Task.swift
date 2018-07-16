@@ -20,6 +20,13 @@ extension Task {
         return dateFormatter
     }
     
+    static var dueTimeFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        return dateFormatter
+    }
+    
     //MARK: - User notifications methods
     
     func scheduleNotification() {

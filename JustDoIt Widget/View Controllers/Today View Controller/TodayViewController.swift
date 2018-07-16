@@ -111,21 +111,17 @@ class TodayViewController: UIViewController {
             attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
             cell.nameLabel.textColor = UIColor.darkGray
             cell.dueDateLabel.isHidden = true
+            cell.checkmarkLabel.text = "✓"
         } else {
             attributedString.append(NSAttributedString(string: task.title!, attributes: nil))
             cell.nameLabel.textColor = UIColor.black
             cell.dueDateLabel.isHidden = false
-            if task.dueDate! < Date() {
-                cell.dueDateLabel.textColor = .red
-            } else {
-                cell.dueDateLabel.textColor = .darkGray
-            }
+            cell.checkmarkLabel.text = "❍"
         }
         
         cell.nameLabel.attributedText = attributedString
         
-        cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
-        
+        cell.dueDateLabel.text = Task.dueTimeFormatter.string(from: task.dueDate!)
     }
     
     
@@ -143,12 +139,7 @@ extension TodayViewController: NCWidgetProviding {
         if activeDisplayMode == .compact {
             self.preferredContentSize = maxSize
         } else if activeDisplayMode == .expanded {
-            
-            //TODO: - widget height
-            
-            let contentHeight = tableView.contentSize.height
-            
-            self.preferredContentSize = CGSize(width: maxSize.width, height: contentHeight)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: tableView.contentSize.height)
         }
     }
     
@@ -183,8 +174,8 @@ extension TodayViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate methods
 
 extension TodayViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Did select row \(indexPath.row)")
         tableView.deselectRow(at: indexPath, animated: true)
         
         let task = fetchedResultsController.object(at: indexPath)
@@ -194,6 +185,7 @@ extension TodayViewController: UITableViewDelegate {
         
         coreDataManager.saveChanges()
     }
+    
 }
 
 // MARK: - NSFetchedResultsControllerDelegate methods
