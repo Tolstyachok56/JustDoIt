@@ -82,7 +82,7 @@ class TasksViewController: UIViewController {
     }
     
     private func setupBarButtonItems() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTask(_:)))
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
@@ -127,6 +127,40 @@ class TasksViewController: UIViewController {
         }
     }
     
+    //MARK: - Actions
+    
+    @IBAction func share(_ sender: UIBarButtonItem) {
+        
+        guard let listName = list?.name else { return }
+        guard let listTasks = fetchedResultsController.fetchedObjects else { return }
+        
+        var tasks: [String] = []
+        for task in listTasks{
+            if !task.isChecked {
+                tasks.append(task.title!)
+            }
+        }
+        
+        let text = "\(listName):\n• \(tasks.joined(separator: "\n• "))"
+        
+        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func clearList(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Clear this list?", message: "All tasks will be removed", preferredStyle: .alert)
+        
+        let removeAction = UIAlertAction(title: "Clear", style: .destructive) { (action) in self.removeAllTasks() }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     //MARK: - Helper methods
     
     private func configure(_ cell:  TaskTableViewCell, at indexPath: IndexPath) {
@@ -154,30 +188,22 @@ class TasksViewController: UIViewController {
         cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
     }
     
-    @objc private func add(_ sender: UIBarButtonItem) {
+    @objc private func addTask(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segue.AddTask, sender: sender)
     }
     
-    //MARK: - Actions
-    
-    @IBAction func share(_ sender: UIBarButtonItem) {
-        guard let listName = list?.name else { return }
-        guard let listTasks = fetchedResultsController.fetchedObjects else { return }
+    private func removeAllTasks() {
+        guard let tasks = fetchedResultsController.fetchedObjects else { return }
         
-        var tasks: [String] = []
-        for task in listTasks{
-            if !task.isChecked {
-                tasks.append(task.title!)
-            }
+        for task in tasks {
+            removeTask(task)
         }
-        
-        let text = "\(listName):\n• \(tasks.joined(separator: "\n• "))"
-        
-        let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
-        
-        present(activityViewController, animated: true, completion: nil)
     }
     
+    private func removeTask(_ task: Task) {
+        task.removeNotification()
+        list?.managedObjectContext?.delete(task)
+    }
 
 }
 
@@ -202,11 +228,11 @@ extension TasksViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         guard editingStyle == .delete else { return }
         
         let task = fetchedResultsController.object(at: indexPath)
-        task.removeNotification()
-        list?.managedObjectContext?.delete(task)
+        removeTask(task)
     }
 }
 
