@@ -26,7 +26,8 @@ class TodayViewController: UIViewController {
     private lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Task.dueDate), ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(Task.isChecked), ascending: true),
+                                        NSSortDescriptor(key: #keyPath(Task.dueDate), ascending: true)]
         
         let now = Date()
         let startDate = Calendar.current.startOfDay(for: now)
