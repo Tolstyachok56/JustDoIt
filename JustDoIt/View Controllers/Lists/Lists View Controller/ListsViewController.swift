@@ -202,9 +202,15 @@ extension ListsViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate methods
 
 extension ListsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(0.0001)
+    }
+    
 }
 
 // MARK: - NSFetchedResultsControllerDelegate methods

@@ -114,10 +114,10 @@ class TasksViewController: UIViewController {
         
         switch identifier {
         case Segue.AddTask:
-            guard let destination = segue.destination as? AddTaskViewController else { return }
+            guard let destination = segue.destination as? AddTaskTableViewController else { return }
             destination.list = list
         case Segue.Task:
-            guard let destination = segue.destination as? TaskViewController else { return }
+            guard let destination = segue.destination as? TaskTableViewController else { return }
             guard let cell = sender as? TaskTableViewCell else { return }
             guard let indexPath = tableView.indexPath(for: cell) else { return }
             let task = fetchedResultsController.object(at: indexPath)
@@ -234,6 +234,8 @@ extension TasksViewController: UITableViewDataSource {
         let task = fetchedResultsController.object(at: indexPath)
         removeTask(task)
     }
+    
+    
 }
 
 // MARK: - UITableViewDelegate methods
@@ -247,6 +249,10 @@ extension TasksViewController: UITableViewDelegate {
         
         task.isChecked = !task.isChecked
         task.scheduleNotification()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(0.0001)
     }
     
 }
