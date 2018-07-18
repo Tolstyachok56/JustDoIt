@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dcp-dZ-ErN">
-                                                    <rect key="frame" x="16" y="8" width="276" height="43.5"/>
+                                                    <rect key="frame" x="16" y="8" width="286" height="43.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZYk-Sx-BUT">
                                                             <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
@@ -44,17 +44,17 @@
                                                                 <constraint firstAttribute="width" secondItem="ZYk-Sx-BUT" secondAttribute="height" multiplier="1:1" id="Hzb-cH-imJ"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7f7-n5-cb3">
-                                                            <rect key="frame" x="59.5" y="4" width="216.5" height="36"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7f7-n5-cb3">
+                                                            <rect key="frame" x="59.5" y="4" width="226.5" height="36"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orK-Lg-5Fh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="216.5" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="226.5" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bd-nL-mxk">
-                                                                    <rect key="frame" x="0.0" y="20" width="216.5" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="20" width="226.5" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="dcp-dZ-ErN" secondAttribute="trailing" constant="16" id="2f8-DI-qv1"/>
+                                                <constraint firstAttribute="trailing" secondItem="dcp-dZ-ErN" secondAttribute="trailing" constant="6" id="2f8-DI-qv1"/>
                                                 <constraint firstItem="dcp-dZ-ErN" firstAttribute="leading" secondItem="NG3-ok-q35" secondAttribute="leading" constant="16" id="DQw-fk-xAa"/>
                                                 <constraint firstItem="dcp-dZ-ErN" firstAttribute="top" secondItem="NG3-ok-q35" secondAttribute="top" constant="8" id="Kpg-bl-J3m"/>
                                                 <constraint firstAttribute="bottom" secondItem="dcp-dZ-ErN" secondAttribute="bottom" constant="8" id="log-Dm-YpS"/>
