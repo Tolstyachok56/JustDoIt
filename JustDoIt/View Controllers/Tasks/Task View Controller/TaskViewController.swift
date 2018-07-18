@@ -13,10 +13,10 @@ class TaskViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet var titleTextField: UITextField!
-    @IBOutlet var shouldRemindSwitch: UISwitch!
-    @IBOutlet var dueDatePicker: UIDatePicker!
-    @IBOutlet var dueDateButton: UIButton!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var dueDatePicker: UIDatePicker!
+    @IBOutlet weak var dueDateButton: UIButton!
     
     //MARK: -
     

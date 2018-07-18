@@ -14,8 +14,8 @@ class TodayViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     // MARK: -
     
@@ -109,20 +109,37 @@ class TodayViewController: UIViewController {
         let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         
         if task.isChecked {
+            cell.checkmarkLabel.isHidden = false
+            cell.checkmarkLabel.text = "✓"
+            
+            cell.listIconImageView.isHidden = true
+            
             attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
             cell.nameLabel.textColor = UIColor.darkGray
+            
             cell.dueDateLabel.isHidden = true
-            cell.checkmarkLabel.text = "✓"
         } else {
+            if let iconName = task.list?.iconName, iconName != "NoIcon" {
+                cell.checkmarkLabel.isHidden = true
+                
+                cell.listIconImageView.isHidden = false
+                cell.listIconImageView.image = UIImage(named: iconName)
+            } else {
+                cell.checkmarkLabel.isHidden = false
+                cell.checkmarkLabel.text = "❍"
+                
+                cell.listIconImageView.isHidden = true
+            }
+            
             attributedString.append(NSAttributedString(string: task.title!, attributes: nil))
             cell.nameLabel.textColor = UIColor.black
+            
             cell.dueDateLabel.isHidden = false
-            cell.checkmarkLabel.text = "❍"
+            cell.dueDateLabel.text = Task.dueTimeFormatter.string(from: task.dueDate!)
         }
         
         cell.nameLabel.attributedText = attributedString
         
-        cell.dueDateLabel.text = Task.dueTimeFormatter.string(from: task.dueDate!)
     }
     
     

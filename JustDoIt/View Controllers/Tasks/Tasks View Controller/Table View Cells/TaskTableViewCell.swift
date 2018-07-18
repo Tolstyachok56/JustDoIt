@@ -16,9 +16,9 @@ class TaskTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var checkmarkLabel: UILabel!
-    @IBOutlet var dueDateLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var checkmarkLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
     
     //MARK: - Initialization
     override func awakeFromNib() {

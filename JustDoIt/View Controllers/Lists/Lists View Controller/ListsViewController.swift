@@ -21,8 +21,8 @@ class ListsViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: -
     

@@ -17,8 +17,8 @@ class IconTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    @IBOutlet var iconImageView: UIImageView!
-    @IBOutlet var iconNameLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var iconNameLabel: UILabel!
     
     //MARK: - Initialization
 

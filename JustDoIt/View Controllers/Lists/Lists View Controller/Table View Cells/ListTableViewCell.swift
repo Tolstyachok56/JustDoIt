@@ -16,9 +16,9 @@ class ListTableViewCell: UITableViewCell {
     
     //MARK: - Properties
     
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var numberOfTasksLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberOfTasksLabel: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     //MARK: - Initialization
 

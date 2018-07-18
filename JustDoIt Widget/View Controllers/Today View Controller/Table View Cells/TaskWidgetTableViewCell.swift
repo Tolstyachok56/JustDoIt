@@ -15,10 +15,11 @@ class TaskWidgetTableViewCell: UITableViewCell {
     static let reuseIdentifier = "TaskWidgetTableViewCell"
     
     //MARK: - Properties
-
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var dueDateLabel: UILabel!
-    @IBOutlet var checkmarkLabel: UILabel!
+    
+    @IBOutlet weak var checkmarkLabel: UILabel!
+    @IBOutlet weak var listIconImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
     
     //MARK: - Initialization
     

@@ -47,7 +47,7 @@ class IconViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK: -
     

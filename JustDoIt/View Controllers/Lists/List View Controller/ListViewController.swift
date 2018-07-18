@@ -18,8 +18,8 @@ class ListViewController: UIViewController {
     
     //MARK: - Properties
     
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     //MARK: -
     
