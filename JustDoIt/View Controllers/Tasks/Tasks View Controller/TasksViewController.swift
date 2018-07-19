@@ -150,12 +150,14 @@ class TasksViewController: UIViewController {
     
     
     @IBAction func clearList(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Clear this list?", message: "All tasks will be removed", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let removeAction = UIAlertAction(title: "Clear", style: .destructive) { (action) in self.removeAllTasks() }
+        let removeAllAction = UIAlertAction(title: "Remove all", style: .destructive) { (action) in self.removeAllTasks() }
+        let removeCheckedAction = UIAlertAction(title: "Remove checked", style: .destructive) { (action) in self.removeCheckedTasks() }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alertController.addAction(removeAction)
+        alertController.addAction(removeAllAction)
+        alertController.addAction(removeCheckedAction)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
@@ -200,6 +202,16 @@ class TasksViewController: UIViewController {
         }
     }
     
+    private func removeCheckedTasks() {
+        guard let tasks = fetchedResultsController.fetchedObjects else { return }
+        
+        let checkedTasks = tasks.filter { $0.isChecked }
+        
+        for task in checkedTasks {
+            removeTask(task)
+        }
+    }
+    
     private func removeTask(_ task: Task) {
         task.removeNotification()
         list?.managedObjectContext?.delete(task)
@@ -215,6 +227,7 @@ extension TasksViewController: UITableViewDataSource {
         guard let sections = fetchedResultsController.sections else { return 0 }
         return sections.count
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard  let section = fetchedResultsController.sections?[section] else { return 0 }
         return section.numberOfObjects
@@ -228,13 +241,10 @@ extension TasksViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         guard editingStyle == .delete else { return }
-        
         let task = fetchedResultsController.object(at: indexPath)
         removeTask(task)
     }
-    
     
 }
 
