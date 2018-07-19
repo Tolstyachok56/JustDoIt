@@ -166,8 +166,8 @@
 		044DB3A820DBD1A7001A464F /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
 				04C8F66B20EF788900A8B7B4 /* Extensions */,
+				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
 				044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */,
 				04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */,
 			);
@@ -230,19 +230,19 @@
 			isa = PBXGroup;
 			children = (
 				044DB3B020DBD25E001A464F /* Lists View Controller */,
-				044DB3BA20DCE498001A464F /* Add List View Controller */,
+				044DB3BA20DCE498001A464F /* Add List Table View Controller */,
 				044DB3C120DCF05C001A464F /* List Table View Controller */,
 				0489F2F220E2441500A768C8 /* Icon View Controller */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
 		};
-		044DB3BA20DCE498001A464F /* Add List View Controller */ = {
+		044DB3BA20DCE498001A464F /* Add List Table View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				041FB2492100934F0076C504 /* AddListTableViewController.swift */,
 			);
-			path = "Add List View Controller";
+			path = "Add List Table View Controller";
 			sourceTree = "<group>";
 		};
 		044DB3BD20DCE6B6001A464F /* Extensions */ = {
