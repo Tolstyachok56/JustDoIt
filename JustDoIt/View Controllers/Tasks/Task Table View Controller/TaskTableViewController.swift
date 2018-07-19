@@ -33,7 +33,7 @@ class TaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit Task"
+        title = NSLocalizedString("Edit Task", comment: "Edit Task")
         
         setupView()
     }

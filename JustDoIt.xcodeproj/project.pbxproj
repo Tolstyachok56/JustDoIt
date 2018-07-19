@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040929B62100DAA7004B57CF /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040929B82100DAA7004B57CF /* Tasks.storyboard */; };
 		041264392100E4070069E0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412643B2100E4070069E0B4 /* Localizable.strings */; };
+		0412644F210105B80069E0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412643B2100E4070069E0B4 /* Localizable.strings */; };
 		041FB248210086680076C504 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB247210086680076C504 /* ListTableViewController.swift */; };
 		041FB24A2100934F0076C504 /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB2492100934F0076C504 /* AddListTableViewController.swift */; };
 		044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB39520DBD06C001A464F /* AppDelegate.swift */; };
@@ -504,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DC336920FB8EED003678D2 /* Assets.xcassets in Resources */,
+				0412644F210105B80069E0B4 /* Localizable.strings in Resources */,
 				04DC335420F76939003678D2 /* Widget.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

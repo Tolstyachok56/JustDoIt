@@ -76,7 +76,7 @@ class TodayViewController: UIViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = "You don't have any tasks today"
+        messageLabel.text = NSLocalizedString("You don't have any tasks today", comment: "You don't have any tasks today")
     }
     
     private func setupTableView() {

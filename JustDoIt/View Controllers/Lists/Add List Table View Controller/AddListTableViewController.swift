@@ -46,6 +46,7 @@ class AddListTableViewController: UITableViewController {
     private func setupView() {
         setupIconImageView()
         setupNameTextField()
+        setupBarButtonItems()
     }
     
     private func setupNameTextField() {
@@ -54,6 +55,10 @@ class AddListTableViewController: UITableViewController {
     
     private func setupIconImageView() {
         updateIconImageView()
+    }
+    
+    private func setupBarButtonItems() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //update

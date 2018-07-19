@@ -35,7 +35,7 @@ class AddTaskTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Add Task"
+        title = NSLocalizedString("Add Task", comment: "Add Task")
         
         setupView()
     }
@@ -94,7 +94,7 @@ class AddTaskTableViewController: UITableViewController {
         guard let managedObjectContext = list?.managedObjectContext else { return }
         
         guard let title = titleTextField.text, !title.isEmpty else {
-            showAlert(withTitle: "Name missing", andMessage: "Your task doesn't have any title")
+            showAlert(withTitle: NSLocalizedString("Title missing", comment: "Title missing"), andMessage: NSLocalizedString("Your task doesn't have any title", comment: "Your task doesn't have any title"))
             return
         }
         
