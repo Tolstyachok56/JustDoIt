@@ -63,7 +63,7 @@ class IconViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Icons"
+        title = NSLocalizedString("Icons", comment: "IconViewController title")
     }
 
     override func viewWillDisappear(_ animated: Bool) {

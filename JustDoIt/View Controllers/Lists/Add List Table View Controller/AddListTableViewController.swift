@@ -35,7 +35,7 @@ class AddListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Add List"
+        title = NSLocalizedString("Add List", comment: "AddListTableViewController title")
         
         setupView()
     }
@@ -67,7 +67,7 @@ class AddListTableViewController: UITableViewController {
         guard let managedObjectContext = managedObjectContext else { return }
         
         guard let name = nameTextField.text, !name.isEmpty else {
-            showAlert(withTitle: "Name missing", andMessage: "Your list doesn't have any name")
+            showAlert(withTitle: NSLocalizedString("Name missing", comment: "Alert title"), andMessage: NSLocalizedString("Your list doesn't have any name", comment: "Alert message"))
             return
         }
         

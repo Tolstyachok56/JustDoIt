@@ -30,7 +30,7 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit List"
+        title =  NSLocalizedString("Edit List", comment: "ListTableViewController title")
         
         setupView()
     }

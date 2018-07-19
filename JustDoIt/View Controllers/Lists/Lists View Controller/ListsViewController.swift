@@ -80,7 +80,7 @@ class ListsViewController: UIViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = "You don't have any lists yet"
+        messageLabel.text = NSLocalizedString("You don't have any lists yet", comment: "Text of message label")
     }
     
     private func setupTableView() {
@@ -142,12 +142,12 @@ class ListsViewController: UIViewController {
             let uncheckedTasks = Array(tasks).filter { !$0.isChecked }
             
             if uncheckedTasks.count == 0 {
-                cell.numberOfTasksLabel.text = "All done!"
+                cell.numberOfTasksLabel.text = NSLocalizedString("All done!", comment: "All tasks in list are done")
             } else {
-                cell.numberOfTasksLabel.text = "\(uncheckedTasks.count) remaining"
+                cell.numberOfTasksLabel.text = "\(uncheckedTasks.count) " + NSLocalizedString("remaining", comment: "Tasks remaining")
             }
         } else {
-            cell.numberOfTasksLabel.text = "[No tasks]"
+            cell.numberOfTasksLabel.text = "[" + NSLocalizedString("No tasks", comment: "There is no tasks in list") + "]"
         }
         
         // icon image view

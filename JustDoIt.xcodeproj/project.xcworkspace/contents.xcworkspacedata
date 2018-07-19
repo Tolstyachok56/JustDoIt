@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:JustDoIt.xcodeproj">
+      location = "group:/Users/viktoriabadisova/&#x414;&#x43e;&#x43a;&#x443;&#x43c;&#x435;&#x43d;&#x442;&#x44b;/All Swift Projects/My projects/JustDoIt/JustDoIt/View Controllers/Lists/Lists View Controller/Localizable.strings">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
