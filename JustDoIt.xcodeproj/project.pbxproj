@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041FB248210086680076C504 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB247210086680076C504 /* ListTableViewController.swift */; };
+		041FB24A2100934F0076C504 /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB2492100934F0076C504 /* AddListTableViewController.swift */; };
 		044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB39520DBD06C001A464F /* AppDelegate.swift */; };
 		044DB39B20DBD06C001A464F /* Lists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB39920DBD06C001A464F /* Lists.storyboard */; };
 		044DB39D20DBD06D001A464F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044DB39C20DBD06D001A464F /* Assets.xcassets */; };
@@ -15,9 +17,7 @@
 		044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */; };
 		044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B420DBDEF6001A464F /* CoreDataManager.swift */; };
 		044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */; };
-		044DB3BC20DCE4C8001A464F /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3BB20DCE4C8001A464F /* AddListViewController.swift */; };
 		044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3BE20DCE6D3001A464F /* UIViewController.swift */; };
-		044DB3C320DCF0AB001A464F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3C220DCF0AB001A464F /* ListViewController.swift */; };
 		044DB3CE20DCF6DB001A464F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3CD20DCF6DB001A464F /* TasksViewController.swift */; };
 		044DB3D020DCF6EC001A464F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3CF20DCF6EC001A464F /* TaskTableViewCell.swift */; };
 		044DB3D220DD033F001A464F /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB3D120DD033F001A464F /* Tasks.storyboard */; };
@@ -64,6 +64,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		041FB247210086680076C504 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		041FB2492100934F0076C504 /* AddListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewController.swift; sourceTree = "<group>"; };
 		044DB39220DBD06C001A464F /* JustDoIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDoIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044DB39520DBD06C001A464F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044DB39A20DBD06C001A464F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Lists.storyboard; sourceTree = "<group>"; };
@@ -74,9 +76,7 @@
 		044DB3B220DBDC2B001A464F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		044DB3B420DBDEF6001A464F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JustDoIt.xcdatamodel; sourceTree = "<group>"; };
-		044DB3BB20DCE4C8001A464F /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		044DB3BE20DCE6D3001A464F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		044DB3C220DCF0AB001A464F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		044DB3CD20DCF6DB001A464F /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		044DB3CF20DCF6EC001A464F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		044DB3D120DD033F001A464F /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 			children = (
 				044DB3B020DBD25E001A464F /* Lists View Controller */,
 				044DB3BA20DCE498001A464F /* Add List View Controller */,
-				044DB3C120DCF05C001A464F /* List View Controller */,
+				044DB3C120DCF05C001A464F /* List Table View Controller */,
 				0489F2F220E2441500A768C8 /* Icon View Controller */,
 			);
 			path = Lists;
@@ -240,7 +240,7 @@
 		044DB3BA20DCE498001A464F /* Add List View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				044DB3BB20DCE4C8001A464F /* AddListViewController.swift */,
+				041FB2492100934F0076C504 /* AddListTableViewController.swift */,
 			);
 			path = "Add List View Controller";
 			sourceTree = "<group>";
@@ -253,12 +253,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		044DB3C120DCF05C001A464F /* List View Controller */ = {
+		044DB3C120DCF05C001A464F /* List Table View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				044DB3C220DCF0AB001A464F /* ListViewController.swift */,
+				041FB247210086680076C504 /* ListTableViewController.swift */,
 			);
-			path = "List View Controller";
+			path = "List Table View Controller";
 			sourceTree = "<group>";
 		};
 		044DB3C420DCF673001A464F /* Tasks */ = {
@@ -503,10 +503,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041FB24A2100934F0076C504 /* AddListTableViewController.swift in Sources */,
 				044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */,
-				044DB3BC20DCE4C8001A464F /* AddListViewController.swift in Sources */,
 				044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */,
 				044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */,
+				041FB248210086680076C504 /* ListTableViewController.swift in Sources */,
 				0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */,
 				044DB3D020DCF6EC001A464F /* TaskTableViewCell.swift in Sources */,
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
@@ -516,7 +517,6 @@
 				04C8F66D20EF789D00A8B7B4 /* Task.swift in Sources */,
 				047B5ED120FF74EA00CD2E69 /* TaskTableViewController.swift in Sources */,
 				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
-				044DB3C320DCF0AB001A464F /* ListViewController.swift in Sources */,
 				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,
 				04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */,
 			);

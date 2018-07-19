@@ -17,6 +17,7 @@ class IconViewController: UIViewController {
     //MARK: - IconNames
     
     private enum IconName: String, CaseIterable {
+        
         case NoIcon = "NoIcon"
         
         case Airport = "Airport"
@@ -122,6 +123,10 @@ extension IconViewController: UITableViewDelegate {
         let iconNames = IconName.allCases.compactMap {$0.rawValue}
         self.iconName = iconNames[indexPath.row]
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(0.0001)
     }
     
 }

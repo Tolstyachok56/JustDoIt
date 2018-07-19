@@ -1,15 +1,15 @@
 //
-//  AddListViewController.swift
+//  AddListTableViewController.swift
 //  JustDoIt
 //
-//  Created by Виктория Бадисова on 22.06.2018.
+//  Created by Виктория Бадисова on 19.07.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class AddListViewController: UIViewController {
+class AddListTableViewController: UITableViewController {
     
     //MARK: - Segues
     
@@ -30,7 +30,7 @@ class AddListViewController: UIViewController {
     
     var iconName: String = "NoIcon"
     
-    //MARK: - View life cycle
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +40,9 @@ class AddListViewController: UIViewController {
         setupView()
     }
     
-    //MARK: - View methods
+    // MARK: - View methods
     
     //setup
-    
     private func setupView() {
         setupIconImageView()
         setupNameTextField()
@@ -54,15 +53,10 @@ class AddListViewController: UIViewController {
     }
     
     private func setupIconImageView() {
-        iconImageView.layer.borderWidth = CGFloat(0.25)
-        iconImageView.layer.cornerRadius = CGFloat(5.0)
-        iconImageView.layer.borderColor = UIColor.lightGray.cgColor
-        
         updateIconImageView()
     }
     
     //update
-    
     private func updateIconImageView() {
         iconImageView.image = UIImage(named: iconName)
     }
@@ -99,12 +93,31 @@ class AddListViewController: UIViewController {
             fatalError("Unexpected segue identifier")
         }
     }
+    
+    // MARK: - UITableViewDelegate
+    
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        nameTextField.resignFirstResponder()
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath == IndexPath(row: 1, section: 1) {
+            performSegue(withIdentifier: Segue.Icon, sender: indexPath)
+        }
+    }
 
 }
 
 //MARK: - UITextFieldDelegate methods
 
-extension AddListViewController: UITextFieldDelegate {
+extension AddListTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -115,7 +128,7 @@ extension AddListViewController: UITextFieldDelegate {
 
 //MARK: - IconViewControllerDelegate methods
 
-extension AddListViewController: IconViewControllerDelegate {
+extension AddListTableViewController: IconViewControllerDelegate {
     
     func controller(_ controller: IconViewController, didPick iconName: String) {
         self.iconName = iconName

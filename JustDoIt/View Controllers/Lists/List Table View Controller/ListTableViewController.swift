@@ -1,14 +1,14 @@
 //
-//  ListViewController.swift
+//  ListTableViewController.swift
 //  JustDoIt
 //
-//  Created by Виктория Бадисова on 22.06.2018.
+//  Created by Виктория Бадисова on 19.07.2018.
 //  Copyright © 2018 Виктория Бадисова. All rights reserved.
 //
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListTableViewController: UITableViewController {
     
     //MARK: - Segues
     
@@ -16,20 +16,20 @@ class ListViewController: UIViewController {
         static let Icon = "Icon"
     }
     
-    //MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var iconImageView: UIImageView!
     
-    //MARK: -
-    
+    // MARK: -
+
     var list: List?
     
-    //MARK: - View life cycle
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         title = "Edit List"
         
         setupView()
@@ -43,8 +43,9 @@ class ListViewController: UIViewController {
         }
     }
     
-    //MARK: - View methods
+    // MARK: - View methods
     
+    //setup
     private func setupView() {
         setupNameTextField()
         setupIconImageView()
@@ -55,13 +56,10 @@ class ListViewController: UIViewController {
     }
     
     private func setupIconImageView() {
-        iconImageView.layer.borderWidth = CGFloat(0.25)
-        iconImageView.layer.cornerRadius = CGFloat(5.0)
-        iconImageView.layer.borderColor = UIColor.lightGray.cgColor
-        
         updateIconImageView()
     }
     
+    //update
     private func updateIconImageView() {
         if let iconName = list?.iconName {
             iconImageView.image = UIImage(named: iconName)
@@ -70,7 +68,7 @@ class ListViewController: UIViewController {
         }
     }
     
-    //MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
@@ -85,11 +83,30 @@ class ListViewController: UIViewController {
         }
     }
     
+    // MARK: - UITableViewDelegate methods
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        nameTextField.resignFirstResponder()
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath == IndexPath(row: 1, section: 1) {
+            performSegue(withIdentifier: Segue.Icon, sender: indexPath)
+        }
+        
+    }
+    
 }
 
 //MARK: - UITextFieldDelegate methods
 
-extension ListViewController: UITextFieldDelegate {
+extension ListTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -100,7 +117,7 @@ extension ListViewController: UITextFieldDelegate {
 
 //MARK: - IconViewControllerDelegate methods
 
-extension ListViewController: IconViewControllerDelegate {
+extension ListTableViewController: IconViewControllerDelegate {
     
     func controller(_ controller: IconViewController, didPick iconName: String) {
         list?.iconName = iconName
