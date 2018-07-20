@@ -51,13 +51,6 @@ class TaskTableViewController: UITableViewController {
         task?.scheduleNotification()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        updateDueDateLabel()
-        updateReminderDateLabel()
-    }
-    
     // MARK: - View methods
     
     private func setupView() {
@@ -87,7 +80,7 @@ class TaskTableViewController: UITableViewController {
     
     private func updateDueDateLabel() {
         guard let dueDate = task?.dueDate else {
-            dueDateLabel.text = "None"
+            dueDateLabel.text = NSLocalizedString("No due date", comment: "No due date")
             return
         }
         dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate)
@@ -95,7 +88,7 @@ class TaskTableViewController: UITableViewController {
     
     private func updateReminderDateLabel() {
         guard let _ = task?.reminderDate, let reminderDelay = task?.reminderDelay  else {
-            reminderDateLabel.text = "None"
+            reminderDateLabel.text = NSLocalizedString("No reminder date", comment: "No reminder date")
             return
         }
         reminderDateLabel.text = NSLocalizedString(reminderDelay, comment: reminderDelay)
@@ -109,10 +102,12 @@ class TaskTableViewController: UITableViewController {
         switch identifier {
         case Segue.DueDate:
             guard let destination = segue.destination as? DueDateTableViewController else { return }
-            destination.task = task
+            destination.delegate = self
+            destination.dueDate = task?.dueDate
         case Segue.ReminderDate:
             guard let destination = segue.destination as? ReminderDateTableViewController else { return }
-            destination.task = task
+            destination.delegate = self
+            destination.reminderDelay = task?.reminderDelay
         default:
             fatalError("Unexpected segue identifier")
         }
@@ -136,6 +131,51 @@ extension TaskTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         titleTextField.resignFirstResponder()
         return true
+    }
+    
+}
+
+// MARK: - DueDateTableViewControllerDelegate methods
+
+extension TaskTableViewController: DueDateTableViewControllerDelegate {
+    
+    func controller(_ controller: DueDateTableViewController, didPick date: Date?) {
+        
+        if let dueDate = date {
+            task?.dueDate = dueDate
+            if task?.shouldRemind == true, let delayOption = Reminder.getDelayOption(withTitle: (task?.reminderDelay)!) {
+                task?.reminderDate = Calendar.current.date(byAdding: delayOption.component, value: delayOption.value, to: dueDate)
+            }
+        } else {
+            task?.dueDate = nil
+            task?.shouldRemind = false
+            task?.reminderDate = nil
+            task?.reminderDelay = nil
+        }
+        
+        updateDueDateLabel()
+        updateReminderDateLabel()
+    }
+    
+}
+
+// MARK: - ReminderDateTableViewControllerDelegate methods
+
+extension TaskTableViewController: ReminderDateTableViewControllerDelegate {
+    
+    func controller(_ controller: ReminderDateTableViewController, didPick reminderDelay: String?) {
+        if let reminderDelay = reminderDelay, let dueDate = task?.dueDate,
+            let delayOption = Reminder.getDelayOption(withTitle: reminderDelay) {
+            task?.shouldRemind = true
+            task?.reminderDate = Calendar.current.date(byAdding: delayOption.component, value: delayOption.value, to: dueDate)
+            task?.reminderDelay = reminderDelay
+        } else {
+            task?.shouldRemind = false
+            task?.reminderDate = nil
+            task?.reminderDelay = nil
+        }
+        
+        updateReminderDateLabel()
     }
     
 }

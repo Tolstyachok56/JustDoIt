@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DueDateTableViewControllerDelegate {
+    func controller(_ controller: DueDateTableViewController, didPick date: Date?)
+}
+
 class DueDateTableViewController: UITableViewController {
     
     // MARK: - Properties
@@ -16,7 +20,11 @@ class DueDateTableViewController: UITableViewController {
     
     // MARK: -
     
-    var task: Task?
+    var delegate: DueDateTableViewControllerDelegate?
+    
+    // MARK: -
+    
+    var dueDate: Date?
     
     // MARK: - View life cycle
 
@@ -26,8 +34,15 @@ class DueDateTableViewController: UITableViewController {
         title = NSLocalizedString("Due Date", comment: "Due Date")
         
         setupView()
+        
+        dueDate = dueDatePicker.date
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        delegate?.controller(self, didPick: dueDate)
+    }
     
     // MARK: - View methods
     
@@ -36,7 +51,7 @@ class DueDateTableViewController: UITableViewController {
     }
     
     private func setupDueDatePicker() {
-        guard let dueDate = task?.dueDate else {
+        guard let dueDate = self.dueDate else {
             dueDatePicker.date = Date().zeroSeconds!
             return
         }
@@ -46,20 +61,14 @@ class DueDateTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction private func dueDateChanged(_ sender: UIDatePicker) {
-        task?.dueDate = sender.date
-        if task?.shouldRemind == true, let delayOption = Reminder.getDelayOption(withTitle: (task?.reminderDelay)!) {
-            task?.reminderDate = Calendar.current.date(byAdding: delayOption.component, value: delayOption.value, to: sender.date)
-        }
+        dueDate = sender.date
     }
 
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            task?.dueDate = nil
-            task?.shouldRemind = false
-            task?.reminderDate = nil
-            task?.reminderDelay = nil
+            dueDate = nil
             _ = navigationController?.popViewController(animated: true)
         }
     }

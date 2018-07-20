@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol ReminderDateTableViewControllerDelegate {
+    func controller(_ controller: ReminderDateTableViewController, didPick reminderDelay: String?)
+}
+
 class ReminderDateTableViewController: UITableViewController {
     
     // MARK: -
     
-    var task: Task?
+    var delegate: ReminderDateTableViewControllerDelegate?
+    
+    // MARK: -
+    
+    var reminderDelay: String? = nil
     
     // MARK: - View life cycle
 
@@ -20,6 +28,12 @@ class ReminderDateTableViewController: UITableViewController {
         super.viewDidLoad()
         
         title = NSLocalizedString("Remind", comment: "Remind")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        delegate?.controller(self, didPick: reminderDelay)
     }
 
     // MARK: - UITableViewDataSource
@@ -44,7 +58,7 @@ class ReminderDateTableViewController: UITableViewController {
         } else {
             let title = Reminder.delayOptions[indexPath.row].title
             cell.delayOptionLabel.text = NSLocalizedString(title, comment: title)
-            if let reminderDelay = task?.reminderDelay, reminderDelay == title {
+            if let reminderDelay = self.reminderDelay, reminderDelay == title {
                 cell.accessoryType = .checkmark
             }
         }
@@ -57,15 +71,11 @@ class ReminderDateTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if let dueDate = task?.dueDate, indexPath.section == 1  {
+        if indexPath.section == 1  {
             let delayOption = Reminder.delayOptions[indexPath.row]
-            task?.shouldRemind = true
-            task?.reminderDate = Calendar.current.date(byAdding: delayOption.component, value: delayOption.value, to: dueDate)
-            task?.reminderDelay = delayOption.title
+            self.reminderDelay = delayOption.title
         } else {
-            task?.shouldRemind = false
-            task?.reminderDate = nil
-            task?.reminderDelay = nil
+            self.reminderDelay = nil
         }
         
         _ = navigationController?.popViewController(animated: true)
