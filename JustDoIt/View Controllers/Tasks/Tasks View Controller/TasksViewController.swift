@@ -187,7 +187,10 @@ class TasksViewController: UIViewController {
         
         //dueDateLabel
         cell.dueDateLabel.isHidden = task.isChecked || !task.shouldRemind
-        cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
+        if let dueDate = task.dueDate {
+            cell.dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate)
+        }
+        
     }
     
     @objc private func addTask(_ sender: UIBarButtonItem) {

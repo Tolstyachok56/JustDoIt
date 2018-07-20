@@ -1,33 +1,42 @@
 
-/* Class = "UILabel"; text = "Remind Me"; ObjectID = "12d-WK-PbZ"; */
-"12d-WK-PbZ.text" = "Напомнить";
-
 /* Class = "UILabel"; text = "Label"; ObjectID = "2tl-xr-vlQ"; */
 "2tl-xr-vlQ.text" = "Label";
 
 /* Class = "UILabel"; text = "Remind Me"; ObjectID = "4Qr-jw-bbG"; */
 "4Qr-jw-bbG.text" = "Напомнить";
 
+/* Class = "UILabel"; text = "Remind Me"; ObjectID = "4dd-44-w8z"; */
+"4dd-44-w8z.text" = "Напомнить";
+
+/* Class = "UITextField"; placeholder = "Enter task's title"; ObjectID = "4hW-Tr-IxR"; */
+"4hW-Tr-IxR.placeholder" = "Введите описание задачи";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "5vM-N0-qUh"; */
 "5vM-N0-qUh.text" = "Label";
 
-/* Class = "UITextField"; placeholder = "Enter task's title"; ObjectID = "7Xb-F0-HF1"; */
-"7Xb-F0-HF1.placeholder" = "Введите описание задачи";
+/* Class = "UILabel"; text = "None"; ObjectID = "K0V-ka-Vdu"; */
+"K0V-ka-Vdu.text" = "Нет";
 
 /* Class = "UILabel"; text = "Due Date"; ObjectID = "M1q-iQ-Wrr"; */
 "M1q-iQ-Wrr.text" = "Срок";
 
-/* Class = "UILabel"; text = "Due Date"; ObjectID = "Smj-Bi-Q5y"; */
-"Smj-Bi-Q5y.text" = "Срок";
+/* Class = "UILabel"; text = "Label"; ObjectID = "MDr-HJ-NBf"; */
+"MDr-HJ-NBf.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "TlN-h2-3WE"; */
 "TlN-h2-3WE.text" = "Label";
 
+/* Class = "UILabel"; text = "Due Date"; ObjectID = "W5k-lr-DQZ"; */
+"W5k-lr-DQZ.text" = "Срок";
+
 /* Class = "UILabel"; text = "❍"; ObjectID = "ZLQ-ah-Wfn"; */
 "ZLQ-ah-Wfn.text" = "❍";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "din-54-BYc"; */
-"din-54-BYc.normalTitle" = "Button";
+/* Class = "UILabel"; text = "None"; ObjectID = "eFp-nQ-mza"; */
+"eFp-nQ-mza.text" = "Нет";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iih-X9-xii"; */
+"iih-X9-xii.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lKb-3K-ESs"; */
 "lKb-3K-ESs.normalTitle" = "Button";

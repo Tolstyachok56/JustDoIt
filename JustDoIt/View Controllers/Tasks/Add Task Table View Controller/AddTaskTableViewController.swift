@@ -106,6 +106,7 @@ class AddTaskTableViewController: UITableViewController {
         task.dueDate = dueDatePicker.date
         task.uid = UUID().uuidString
         task.createdDate = Date()
+        task.reminderDate = task.dueDate
         list?.addToTasks(task)
         
         task.scheduleNotification()
