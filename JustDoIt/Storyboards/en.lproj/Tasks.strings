@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2tl-xr-vlQ"; */
+"2tl-xr-vlQ.text" = "Label";
+
+/* Class = "UILabel"; text = "Remind Me"; ObjectID = "4Qr-jw-bbG"; */
+"4Qr-jw-bbG.text" = "Remind Me";
+
+/* Class = "UILabel"; text = "Remind Me"; ObjectID = "4dd-44-w8z"; */
+"4dd-44-w8z.text" = "Remind Me";
+
+/* Class = "UITextField"; placeholder = "Enter task's title"; ObjectID = "4hW-Tr-IxR"; */
+"4hW-Tr-IxR.placeholder" = "Enter task's title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5vM-N0-qUh"; */
+"5vM-N0-qUh.text" = "Label";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "K0V-ka-Vdu"; */
+"K0V-ka-Vdu.text" = "None";
+
+/* Class = "UILabel"; text = "Due Date"; ObjectID = "M1q-iQ-Wrr"; */
+"M1q-iQ-Wrr.text" = "Due Date";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MDr-HJ-NBf"; */
+"MDr-HJ-NBf.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TlN-h2-3WE"; */
+"TlN-h2-3WE.text" = "Label";
+
+/* Class = "UILabel"; text = "Due Date"; ObjectID = "W5k-lr-DQZ"; */
+"W5k-lr-DQZ.text" = "Due Date";
+
+/* Class = "UILabel"; text = "❍"; ObjectID = "ZLQ-ah-Wfn"; */
+"ZLQ-ah-Wfn.text" = "❍";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "eFp-nQ-mza"; */
+"eFp-nQ-mza.text" = "None";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "iih-X9-xii"; */
+"iih-X9-xii.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lKb-3K-ESs"; */
+"lKb-3K-ESs.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Enter tasks's title"; ObjectID = "ymn-tX-jDm"; */
+"ymn-tX-jDm.placeholder" = "Enter tasks's title";

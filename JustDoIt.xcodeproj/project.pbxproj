@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040929B62100DAA7004B57CF /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040929B82100DAA7004B57CF /* Tasks.storyboard */; };
+		041264392100E4070069E0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412643B2100E4070069E0B4 /* Localizable.strings */; };
+		0412644F210105B80069E0B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0412643B2100E4070069E0B4 /* Localizable.strings */; };
+		041264522101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 041264512101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel */; };
+		041264532101E1240069E0B4 /* JustDoIt_7_to_8.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 041264512101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel */; };
+		041264582101ECA10069E0B4 /* DueDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041264572101ECA10069E0B4 /* DueDateTableViewController.swift */; };
+		0412645A2101ECB50069E0B4 /* ReminderDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */; };
+		04126463210205D30069E0B4 /* ReminderDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */; };
+		04126468210225590069E0B4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04126467210225590069E0B4 /* Date.swift */; };
 		041FB248210086680076C504 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB247210086680076C504 /* ListTableViewController.swift */; };
 		041FB24A2100934F0076C504 /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB2492100934F0076C504 /* AddListTableViewController.swift */; };
 		044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB39520DBD06C001A464F /* AppDelegate.swift */; };
@@ -20,7 +29,6 @@
 		044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3BE20DCE6D3001A464F /* UIViewController.swift */; };
 		044DB3CE20DCF6DB001A464F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3CD20DCF6DB001A464F /* TasksViewController.swift */; };
 		044DB3D020DCF6EC001A464F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB3CF20DCF6EC001A464F /* TaskTableViewCell.swift */; };
-		044DB3D220DD033F001A464F /* Tasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044DB3D120DD033F001A464F /* Tasks.storyboard */; };
 		047B5ED120FF74EA00CD2E69 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B5ED020FF74EA00CD2E69 /* TaskTableViewController.swift */; };
 		047B5ED320FF869F00CD2E69 /* AddTaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B5ED220FF869F00CD2E69 /* AddTaskTableViewController.swift */; };
 		0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0489F2F320E2448800A768C8 /* IconViewController.swift */; };
@@ -64,6 +72,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040929B02100D9B3004B57CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Lists.strings; sourceTree = "<group>"; };
+		040929B12100DA29004B57CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Lists.strings; sourceTree = "<group>"; };
+		040929B32100DA29004B57CF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Widget.strings; sourceTree = "<group>"; };
+		040929B72100DAA7004B57CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tasks.storyboard; sourceTree = "<group>"; };
+		0412643A2100E4070069E0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0412643C2100E4090069E0B4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		041264502101DEA60069E0B4 /* JustDoIt 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 8.xcdatamodel"; sourceTree = "<group>"; };
+		041264512101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = JustDoIt_7_to_8.xcmappingmodel; sourceTree = "<group>"; };
+		041264572101ECA10069E0B4 /* DueDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateTableViewController.swift; sourceTree = "<group>"; };
+		041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateTableViewController.swift; sourceTree = "<group>"; };
+		0412645C2101F5BD0069E0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tasks.strings; sourceTree = "<group>"; };
+		0412645E2101F5C00069E0B4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tasks.strings; sourceTree = "<group>"; };
+		04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateTableViewCell.swift; sourceTree = "<group>"; };
+		04126467210225590069E0B4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		041FB247210086680076C504 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		041FB2492100934F0076C504 /* AddListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewController.swift; sourceTree = "<group>"; };
 		044DB39220DBD06C001A464F /* JustDoIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDoIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +101,8 @@
 		044DB3BE20DCE6D3001A464F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		044DB3CD20DCF6DB001A464F /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		044DB3CF20DCF6EC001A464F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
-		044DB3D120DD033F001A464F /* Tasks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tasks.storyboard; sourceTree = "<group>"; };
 		044DB3D320DD1284001A464F /* JustDoIt 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 2.xcdatamodel"; sourceTree = "<group>"; };
+		0455D2482100DE5300FB814F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Widget.strings; sourceTree = "<group>"; };
 		047B5ED020FF74EA00CD2E69 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		047B5ED220FF869F00CD2E69 /* AddTaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewController.swift; sourceTree = "<group>"; };
 		0489F2F120E2397200A768C8 /* JustDoIt 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "JustDoIt 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -121,11 +143,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041264542101EC3B0069E0B4 /* Due Date Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				041264572101ECA10069E0B4 /* DueDateTableViewController.swift */,
+			);
+			path = "Due Date Table View Controller";
+			sourceTree = "<group>";
+		};
+		041264562101EC6D0069E0B4 /* Reminder Date Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */,
+				04126461210205B80069E0B4 /* Table View Cells */,
+			);
+			path = "Reminder Date Table View Controller";
+			sourceTree = "<group>";
+		};
+		041264602101FC7E0069E0B4 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				0412643B2100E4070069E0B4 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		04126461210205B80069E0B4 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */,
+			);
+			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		044DB38920DBD06C001A464F = {
 			isa = PBXGroup;
 			children = (
 				044DB39420DBD06C001A464F /* JustDoIt */,
 				04DC334F20F76939003678D2 /* JustDoIt Widget */,
+				041264602101FC7E0069E0B4 /* Localization */,
 				04DC333520F75301003678D2 /* Frameworks */,
 				044DB39320DBD06C001A464F /* Products */,
 			);
@@ -170,6 +226,7 @@
 				044DB3B420DBDEF6001A464F /* CoreDataManager.swift */,
 				044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */,
 				04DC332E20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel */,
+				041264512101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -186,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				044DB39920DBD06C001A464F /* Lists.storyboard */,
-				044DB3D120DD033F001A464F /* Tasks.storyboard */,
+				040929B82100DAA7004B57CF /* Tasks.storyboard */,
 				044DB39E20DBD06D001A464F /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -249,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				044DB3BE20DCE6D3001A464F /* UIViewController.swift */,
+				04126467210225590069E0B4 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +325,8 @@
 				044DB3C720DCF69A001A464F /* Tasks View Controller */,
 				044DB3C620DCF68E001A464F /* Add Task Table View Controller */,
 				044DB3C520DCF67F001A464F /* Task Table View Controller */,
+				041264542101EC3B0069E0B4 /* Due Date Table View Controller */,
+				041264562101EC6D0069E0B4 /* Reminder Date Table View Controller */,
 			);
 			path = Tasks;
 			sourceTree = "<group>";
@@ -463,6 +523,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 044DB38920DBD06C001A464F;
 			productRefGroup = 044DB39320DBD06C001A464F /* Products */;
@@ -480,8 +541,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041264392100E4070069E0B4 /* Localizable.strings in Resources */,
 				044DB3A020DBD06D001A464F /* LaunchScreen.storyboard in Resources */,
-				044DB3D220DD033F001A464F /* Tasks.storyboard in Resources */,
+				040929B62100DAA7004B57CF /* Tasks.storyboard in Resources */,
 				044DB39D20DBD06D001A464F /* Assets.xcassets in Resources */,
 				044DB39B20DBD06C001A464F /* Lists.storyboard in Resources */,
 			);
@@ -492,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DC336920FB8EED003678D2 /* Assets.xcassets in Resources */,
+				0412644F210105B80069E0B4 /* Localizable.strings in Resources */,
 				04DC335420F76939003678D2 /* Widget.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,16 +570,21 @@
 				044DB3BF20DCE6D3001A464F /* UIViewController.swift in Sources */,
 				044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */,
 				044DB3AF20DBD25B001A464F /* ListsViewController.swift in Sources */,
+				0412645A2101ECB50069E0B4 /* ReminderDateTableViewController.swift in Sources */,
 				041FB248210086680076C504 /* ListTableViewController.swift in Sources */,
+				041264522101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel in Sources */,
+				041264582101ECA10069E0B4 /* DueDateTableViewController.swift in Sources */,
 				0489F2F420E2448800A768C8 /* IconViewController.swift in Sources */,
 				044DB3D020DCF6EC001A464F /* TaskTableViewCell.swift in Sources */,
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
 				04DC332F20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */,
 				044DB3CE20DCF6DB001A464F /* TasksViewController.swift in Sources */,
+				04126463210205D30069E0B4 /* ReminderDateTableViewCell.swift in Sources */,
 				047B5ED320FF869F00CD2E69 /* AddTaskTableViewController.swift in Sources */,
 				04C8F66D20EF789D00A8B7B4 /* Task.swift in Sources */,
 				047B5ED120FF74EA00CD2E69 /* TaskTableViewController.swift in Sources */,
 				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
+				04126468210225590069E0B4 /* Date.swift in Sources */,
 				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,
 				04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */,
 			);
@@ -530,6 +598,7 @@
 				04DC335C20F77B32003678D2 /* CoreDataManager.swift in Sources */,
 				04DC336520F78A24003678D2 /* Task.swift in Sources */,
 				04DC336620F78A28003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */,
+				041264532101E1240069E0B4 /* JustDoIt_7_to_8.xcmappingmodel in Sources */,
 				04DC335120F76939003678D2 /* TodayViewController.swift in Sources */,
 				04DC336420F7859E003678D2 /* TaskWidgetTableViewCell.swift in Sources */,
 			);
@@ -546,10 +615,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		040929B82100DAA7004B57CF /* Tasks.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040929B72100DAA7004B57CF /* Base */,
+				0412645C2101F5BD0069E0B4 /* en */,
+				0412645E2101F5C00069E0B4 /* ru */,
+			);
+			name = Tasks.storyboard;
+			sourceTree = "<group>";
+		};
+		0412643B2100E4070069E0B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0412643A2100E4070069E0B4 /* en */,
+				0412643C2100E4090069E0B4 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		044DB39920DBD06C001A464F /* Lists.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				044DB39A20DBD06C001A464F /* Base */,
+				040929B02100D9B3004B57CF /* en */,
+				040929B12100DA29004B57CF /* ru */,
 			);
 			name = Lists.storyboard;
 			sourceTree = "<group>";
@@ -566,6 +656,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				04DC335320F76939003678D2 /* Base */,
+				040929B32100DA29004B57CF /* ru */,
+				0455D2482100DE5300FB814F /* en */,
 			);
 			name = Widget.storyboard;
 			sourceTree = "<group>";
@@ -577,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -637,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -807,6 +901,7 @@
 		044DB3B620DBF02A001A464F /* JustDoIt.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				041264502101DEA60069E0B4 /* JustDoIt 8.xcdatamodel */,
 				04DC332D20F64D2F003678D2 /* JustDoIt 7.xcdatamodel */,
 				04C8F66F20EFBB7C00A8B7B4 /* JustDoIt 6.xcdatamodel */,
 				04C8F66E20EF8CE500A8B7B4 /* JustDoIt 5.xcdatamodel */,
@@ -815,7 +910,7 @@
 				044DB3D320DD1284001A464F /* JustDoIt 2.xcdatamodel */,
 				044DB3B720DBF02A001A464F /* JustDoIt.xcdatamodel */,
 			);
-			currentVersion = 04DC332D20F64D2F003678D2 /* JustDoIt 7.xcdatamodel */;
+			currentVersion = 041264502101DEA60069E0B4 /* JustDoIt 8.xcdatamodel */;
 			path = JustDoIt.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

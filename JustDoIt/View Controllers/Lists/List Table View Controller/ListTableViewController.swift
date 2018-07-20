@@ -30,7 +30,7 @@ class ListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Edit List"
+        title =  NSLocalizedString("Edit List", comment: "ListTableViewController title")
         
         setupView()
     }
@@ -49,6 +49,7 @@ class ListTableViewController: UITableViewController {
     private func setupView() {
         setupNameTextField()
         setupIconImageView()
+        setupBarButtonItems()
     }
     
     private func setupNameTextField() {
@@ -57,6 +58,10 @@ class ListTableViewController: UITableViewController {
     
     private func setupIconImageView() {
         updateIconImageView()
+    }
+    
+    private func setupBarButtonItems() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //update

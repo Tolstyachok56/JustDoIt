@@ -78,7 +78,7 @@ class TasksViewController: UIViewController {
     }
     
     private func setupMessageLabel() {
-        messageLabel.text = "You don't have any tasks yet"
+        messageLabel.text = NSLocalizedString("You don't have any tasks yet", comment: "Text of message label")
     }
     
     private func setupBarButtonItems() {
@@ -152,9 +152,9 @@ class TasksViewController: UIViewController {
     @IBAction func clearList(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let removeAllAction = UIAlertAction(title: "Remove all", style: .destructive) { (action) in self.removeAllTasks() }
-        let removeCheckedAction = UIAlertAction(title: "Remove checked", style: .destructive) { (action) in self.removeCheckedTasks() }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let removeAllAction = UIAlertAction(title: NSLocalizedString("Remove all", comment: "Remove all"), style: .destructive) { (action) in self.removeAllTasks() }
+        let removeCheckedAction = UIAlertAction(title: NSLocalizedString("Remove checked", comment: "Remove checked"), style: .destructive) { (action) in self.removeCheckedTasks() }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil)
         
         alertController.addAction(removeAllAction)
         alertController.addAction(removeCheckedAction)
@@ -187,7 +187,10 @@ class TasksViewController: UIViewController {
         
         //dueDateLabel
         cell.dueDateLabel.isHidden = task.isChecked || !task.shouldRemind
-        cell.dueDateLabel.text = Task.dueDateFormatter.string(from: task.dueDate!)
+        if let dueDate = task.dueDate {
+            cell.dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate)
+        }
+        
     }
     
     @objc private func addTask(_ sender: UIBarButtonItem) {

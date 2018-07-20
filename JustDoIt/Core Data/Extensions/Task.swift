@@ -32,7 +32,7 @@ extension Task {
     func scheduleNotification() {
         removeNotification()
         
-        if let dueDate = self.dueDate, self.shouldRemind && dueDate > Date() && isChecked == false {
+        if let reminderDate = self.reminderDate, self.shouldRemind && reminderDate > Date() && isChecked == false {
             
             let content = UNMutableNotificationContent()
             content.title = (self.list?.name)!
@@ -41,7 +41,7 @@ extension Task {
             content.badge = 1
             
             let calendar = Calendar.current
-            let components = calendar.dateComponents([.month, .day, .hour, .minute], from: dueDate)
+            let components = calendar.dateComponents([.month, .day, .hour, .minute], from: reminderDate)
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
             

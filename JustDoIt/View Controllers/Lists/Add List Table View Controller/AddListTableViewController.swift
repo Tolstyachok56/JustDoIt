@@ -35,7 +35,7 @@ class AddListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Add List"
+        title = NSLocalizedString("Add List", comment: "AddListTableViewController title")
         
         setupView()
     }
@@ -46,6 +46,7 @@ class AddListTableViewController: UITableViewController {
     private func setupView() {
         setupIconImageView()
         setupNameTextField()
+        setupBarButtonItems()
     }
     
     private func setupNameTextField() {
@@ -54,6 +55,10 @@ class AddListTableViewController: UITableViewController {
     
     private func setupIconImageView() {
         updateIconImageView()
+    }
+    
+    private func setupBarButtonItems() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     //update
@@ -67,7 +72,7 @@ class AddListTableViewController: UITableViewController {
         guard let managedObjectContext = managedObjectContext else { return }
         
         guard let name = nameTextField.text, !name.isEmpty else {
-            showAlert(withTitle: "Name missing", andMessage: "Your list doesn't have any name")
+            showAlert(withTitle: NSLocalizedString("Name missing", comment: "Alert title"), andMessage: NSLocalizedString("Your list doesn't have any name", comment: "Alert message"))
             return
         }
         
