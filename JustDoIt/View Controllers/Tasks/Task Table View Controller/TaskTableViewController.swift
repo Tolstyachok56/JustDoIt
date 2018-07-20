@@ -21,8 +21,8 @@ class TaskTableViewController: UITableViewController {
     // MARK: - Properties
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet var dueDateLabel: UILabel!
-    @IBOutlet var reminderDateLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    @IBOutlet weak var reminderDateLabel: UILabel!
     
     // MARK: -
     
@@ -34,6 +34,9 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         
         title = NSLocalizedString("Edit Task", comment: "Edit Task")
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in })
         
         setupView()
     }
@@ -91,11 +94,11 @@ class TaskTableViewController: UITableViewController {
     }
     
     private func updateReminderDateLabel() {
-        guard let reminderDate = task?.reminderDate else {
+        guard let _ = task?.reminderDate, let reminderDelay = task?.reminderDelay  else {
             reminderDateLabel.text = "None"
             return
         }
-        reminderDateLabel.text = Task.dueDateFormatter.string(from: reminderDate)
+        reminderDateLabel.text = NSLocalizedString(reminderDelay, comment: reminderDelay)
     }
     
     // MARK: - Navigation

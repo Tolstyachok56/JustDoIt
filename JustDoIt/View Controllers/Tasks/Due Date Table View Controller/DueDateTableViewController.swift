@@ -18,7 +18,7 @@ class DueDateTableViewController: UITableViewController {
     
     var task: Task?
     
-    // MARK: - View life cyrcle
+    // MARK: - View life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class DueDateTableViewController: UITableViewController {
         setupView()
     }
     
+    
     // MARK: - View methods
     
     private func setupView() {
@@ -36,7 +37,7 @@ class DueDateTableViewController: UITableViewController {
     
     private func setupDueDatePicker() {
         guard let dueDate = task?.dueDate else {
-            dueDatePicker.date = Date()
+            dueDatePicker.date = Date().zeroSeconds!
             return
         }
         dueDatePicker.date = dueDate
@@ -46,15 +47,19 @@ class DueDateTableViewController: UITableViewController {
     
     @IBAction private func dueDateChanged(_ sender: UIDatePicker) {
         task?.dueDate = sender.date
-        task?.shouldRemind = true
+        if task?.shouldRemind == true, let delayOption = Reminder.getDelayOption(withTitle: (task?.reminderDelay)!) {
+            task?.reminderDate = Calendar.current.date(byAdding: delayOption.component, value: delayOption.value, to: sender.date)
+        }
     }
 
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            task?.shouldRemind = false
             task?.dueDate = nil
+            task?.shouldRemind = false
+            task?.reminderDate = nil
+            task?.reminderDelay = nil
             _ = navigationController?.popViewController(animated: true)
         }
     }

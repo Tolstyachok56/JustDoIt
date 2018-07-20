@@ -32,7 +32,7 @@ extension Task {
     func scheduleNotification() {
         removeNotification()
         
-        if let reminderDate = self.dueDate, self.shouldRemind && reminderDate > Date() && isChecked == false {
+        if let reminderDate = self.reminderDate, self.shouldRemind && reminderDate > Date() && isChecked == false {
             
             let content = UNMutableNotificationContent()
             content.title = (self.list?.name)!

@@ -14,6 +14,9 @@
 		041264532101E1240069E0B4 /* JustDoIt_7_to_8.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 041264512101DF210069E0B4 /* JustDoIt_7_to_8.xcmappingmodel */; };
 		041264582101ECA10069E0B4 /* DueDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041264572101ECA10069E0B4 /* DueDateTableViewController.swift */; };
 		0412645A2101ECB50069E0B4 /* ReminderDateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */; };
+		04126463210205D30069E0B4 /* ReminderDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */; };
+		04126465210216400069E0B4 /* ReminderDelayOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04126464210216400069E0B4 /* ReminderDelayOptions.swift */; };
+		04126468210225590069E0B4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04126467210225590069E0B4 /* Date.swift */; };
 		041FB248210086680076C504 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB247210086680076C504 /* ListTableViewController.swift */; };
 		041FB24A2100934F0076C504 /* AddListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FB2492100934F0076C504 /* AddListTableViewController.swift */; };
 		044DB39620DBD06C001A464F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044DB39520DBD06C001A464F /* AppDelegate.swift */; };
@@ -82,6 +85,9 @@
 		041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateTableViewController.swift; sourceTree = "<group>"; };
 		0412645C2101F5BD0069E0B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Tasks.strings; sourceTree = "<group>"; };
 		0412645E2101F5C00069E0B4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Tasks.strings; sourceTree = "<group>"; };
+		04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDateTableViewCell.swift; sourceTree = "<group>"; };
+		04126464210216400069E0B4 /* ReminderDelayOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDelayOptions.swift; sourceTree = "<group>"; };
+		04126467210225590069E0B4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		041FB247210086680076C504 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		041FB2492100934F0076C504 /* AddListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListTableViewController.swift; sourceTree = "<group>"; };
 		044DB39220DBD06C001A464F /* JustDoIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustDoIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +156,9 @@
 		041264562101EC6D0069E0B4 /* Reminder Date Table View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04126464210216400069E0B4 /* ReminderDelayOptions.swift */,
 				041264592101ECB50069E0B4 /* ReminderDateTableViewController.swift */,
+				04126461210205B80069E0B4 /* Table View Cells */,
 			);
 			path = "Reminder Date Table View Controller";
 			sourceTree = "<group>";
@@ -161,6 +169,14 @@
 				0412643B2100E4070069E0B4 /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		04126461210205B80069E0B4 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				04126462210205D30069E0B4 /* ReminderDateTableViewCell.swift */,
+			);
+			path = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		044DB38920DBD06C001A464F = {
@@ -293,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				044DB3BE20DCE6D3001A464F /* UIViewController.swift */,
+				04126467210225590069E0B4 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -564,11 +581,14 @@
 				044DB3D020DCF6EC001A464F /* TaskTableViewCell.swift in Sources */,
 				044DB3B820DBF02A001A464F /* JustDoIt.xcdatamodeld in Sources */,
 				04DC332F20F64E03003678D2 /* JustDoIt_6_to_7.xcmappingmodel in Sources */,
+				04126465210216400069E0B4 /* ReminderDelayOptions.swift in Sources */,
 				044DB3CE20DCF6DB001A464F /* TasksViewController.swift in Sources */,
+				04126463210205D30069E0B4 /* ReminderDateTableViewCell.swift in Sources */,
 				047B5ED320FF869F00CD2E69 /* AddTaskTableViewController.swift in Sources */,
 				04C8F66D20EF789D00A8B7B4 /* Task.swift in Sources */,
 				047B5ED120FF74EA00CD2E69 /* TaskTableViewController.swift in Sources */,
 				044DB3B520DBDEF6001A464F /* CoreDataManager.swift in Sources */,
+				04126468210225590069E0B4 /* Date.swift in Sources */,
 				044DB3B320DBDC2B001A464F /* ListTableViewCell.swift in Sources */,
 				04C8F67220F3A7BA00A8B7B4 /* IconTableViewCell.swift in Sources */,
 			);

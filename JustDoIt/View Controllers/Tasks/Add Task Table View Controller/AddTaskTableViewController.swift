@@ -67,7 +67,7 @@ class AddTaskTableViewController: UITableViewController {
     }
     
     private func setupDueDatePicker() {
-        dueDatePicker.date = Date()
+        dueDatePicker.date = Date().zeroSeconds!
     }
     
     //update
@@ -106,7 +106,8 @@ class AddTaskTableViewController: UITableViewController {
         task.dueDate = dueDatePicker.date
         task.uid = UUID().uuidString
         task.createdDate = Date()
-        task.reminderDate = task.dueDate
+        task.reminderDate = nil
+        task.reminderDelay = nil
         list?.addToTasks(task)
         
         task.scheduleNotification()
