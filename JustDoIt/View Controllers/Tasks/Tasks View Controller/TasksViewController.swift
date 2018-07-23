@@ -29,6 +29,10 @@ class TasksViewController: UIViewController {
     
     //MARK: -
     
+    var coreDataManager: CoreDataManager?
+    
+    //MARK: -
+    
     private lazy var fetchedResultsController: NSFetchedResultsController<Task> = {
 
         guard let managedObjectContext = self.list?.managedObjectContext else {
@@ -67,6 +71,12 @@ class TasksViewController: UIViewController {
         setupView()
         fetchTasks()
         updateView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        coreDataManager?.saveChanges()
     }
     
     //MARK: - View methods

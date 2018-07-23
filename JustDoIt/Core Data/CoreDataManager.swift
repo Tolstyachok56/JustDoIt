@@ -78,7 +78,7 @@ final class CoreDataManager {
     
     @objc func saveChanges(_ notification: Notification) {
         saveChanges()
-        print("Core Data Manager: All changes has been saved due to notification")
+        print("Core Data Manager: All changes has been saved due to notification: \(notification.name.rawValue)")
     }
     
     //MARK: - Helper methods
@@ -120,6 +120,7 @@ final class CoreDataManager {
                     print("\(saveError), \(saveError.localizedDescription)")
                 }
             })
+            print("Core Data Manager: Save changes")
         })
     }
     

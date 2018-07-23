@@ -63,6 +63,7 @@ class ListsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        coreDataManager.saveChanges()
         tableView.reloadData()
     }
     
@@ -124,6 +125,7 @@ class ListsViewController: UIViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let list = fetchedResultsController.object(at: indexPath)
             destination.list = list
+            destination.coreDataManager = coreDataManager
         default:
             fatalError("Unexpected segue identifier")
         }
