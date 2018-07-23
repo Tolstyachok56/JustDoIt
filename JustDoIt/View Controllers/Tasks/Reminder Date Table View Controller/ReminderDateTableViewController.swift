@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 struct DelayOption {
     let title: String
@@ -15,7 +16,7 @@ struct DelayOption {
 }
 
 struct Reminder {
-    static let delayOptions: [DelayOption] = [DelayOption(title: "At due date", component: .minute, value: 0),
+    static let delayOptions: [DelayOption] = [DelayOption(title: "at due date", component: .minute, value: 0),
                                               DelayOption(title: "5 min before", component: .minute, value: -5),
                                               DelayOption(title: "15 min before", component: .minute, value: -15),
                                               DelayOption(title: "30 min before", component: .minute, value: -30),
@@ -55,6 +56,9 @@ class ReminderDateTableViewController: UITableViewController {
         super.viewDidLoad()
         
         title = NSLocalizedString("Remind", comment: "Remind")
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -35,9 +35,6 @@ class TaskTableViewController: UITableViewController {
         
         title = NSLocalizedString("Edit Task", comment: "Edit Task")
         
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in })
-        
         setupView()
     }
     

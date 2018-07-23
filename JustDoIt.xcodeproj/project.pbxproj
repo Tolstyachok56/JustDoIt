@@ -181,7 +181,6 @@
 			children = (
 				044DB39420DBD06C001A464F /* JustDoIt */,
 				04DC334F20F76939003678D2 /* JustDoIt Widget */,
-				041264602101FC7E0069E0B4 /* Localization */,
 				04DC333520F75301003678D2 /* Frameworks */,
 				044DB39320DBD06C001A464F /* Products */,
 			);
@@ -205,6 +204,7 @@
 				044DB3BD20DCE6B6001A464F /* Extensions */,
 				044DB3AA20DBD1C1001A464F /* Resources */,
 				044DB3A820DBD1A7001A464F /* Core Data */,
+				041264602101FC7E0069E0B4 /* Localization */,
 				044DB3A720DBD0A4001A464F /* Supporting Files */,
 			);
 			path = JustDoIt;

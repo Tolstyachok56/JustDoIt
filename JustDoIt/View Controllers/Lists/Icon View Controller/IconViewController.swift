@@ -89,7 +89,7 @@ class IconViewController: UIViewController {
         }
         
         //label
-        cell.iconNameLabel.text = listIconName
+        cell.iconNameLabel.text = NSLocalizedString(listIconName, comment: listIconName)
         
     }
     

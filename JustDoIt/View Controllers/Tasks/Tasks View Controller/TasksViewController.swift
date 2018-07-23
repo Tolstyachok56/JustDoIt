@@ -186,9 +186,13 @@ class TasksViewController: UIViewController {
         cell.checkmarkLabel.textColor = view.tintColor
         
         //dueDateLabel
-        cell.dueDateLabel.isHidden = task.isChecked || !task.shouldRemind
+        cell.dueDateLabel.isHidden = task.isChecked || task.dueDate == nil
         if let dueDate = task.dueDate {
-            cell.dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate)
+            if task.shouldRemind {
+                cell.dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate) + ", 🔔 " + NSLocalizedString(task.reminderDelay!, comment: task.reminderDelay!)
+            } else {
+                cell.dueDateLabel.text = Task.dueDateFormatter.string(from: dueDate)
+            }
         }
         
     }
