@@ -67,8 +67,17 @@ class DueDateTableViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if indexPath.section == 0 {
-            dueDate = nil
+            if indexPath.row == 0 {
+                dueDate = nil
+            } else if indexPath.row == 1 {
+                let today = Date()
+                dueDate = Calendar.current.startOfDay(for: today)
+            } else if indexPath.row == 2 {
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+                dueDate = Calendar.current.startOfDay(for: tomorrow!)
+            }
             _ = navigationController?.popViewController(animated: true)
         }
     }

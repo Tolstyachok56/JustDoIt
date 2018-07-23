@@ -43,3 +43,11 @@
 
 /* Class = "UITextField"; placeholder = "Enter tasks's title"; ObjectID = "ymn-tX-jDm"; */
 "ymn-tX-jDm.placeholder" = "Enter tasks's title";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "r2U-kp-aqp"; */
+"r2U-kp-aqp.text" = "Today";
+
+/* Class = "UILabel"; text = "Tomorrow"; ObjectID = "ppK-XB-9Qv"; */
+"ppK-XB-9Qv.text" = "Tomorrow";
+
+

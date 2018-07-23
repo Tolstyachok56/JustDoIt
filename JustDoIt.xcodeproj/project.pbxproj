@@ -199,13 +199,13 @@
 			isa = PBXGroup;
 			children = (
 				044DB3AD20DBD1F1001A464F /* Application Delegate */,
-				044DB3AC20DBD1DE001A464F /* View Controllers */,
-				044DB3AB20DBD1CC001A464F /* Storyboards */,
-				044DB3BD20DCE6B6001A464F /* Extensions */,
-				044DB3AA20DBD1C1001A464F /* Resources */,
 				044DB3A820DBD1A7001A464F /* Core Data */,
+				044DB3BD20DCE6B6001A464F /* Extensions */,
 				041264602101FC7E0069E0B4 /* Localization */,
+				044DB3AA20DBD1C1001A464F /* Resources */,
+				044DB3AB20DBD1CC001A464F /* Storyboards */,
 				044DB3A720DBD0A4001A464F /* Supporting Files */,
+				044DB3AC20DBD1DE001A464F /* View Controllers */,
 			);
 			path = JustDoIt;
 			sourceTree = "<group>";
@@ -400,9 +400,9 @@
 		04DC334F20F76939003678D2 /* JustDoIt Widget */ = {
 			isa = PBXGroup;
 			children = (
-				04DC335E20F78514003678D2 /* View Controllers */,
 				04DC335F20F78524003678D2 /* Storyboards */,
 				04DC336020F78530003678D2 /* Supporting Files */,
+				04DC335E20F78514003678D2 /* View Controllers */,
 			);
 			path = "JustDoIt Widget";
 			sourceTree = "<group>";

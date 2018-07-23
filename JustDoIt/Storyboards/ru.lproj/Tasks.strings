@@ -43,3 +43,9 @@
 
 /* Class = "UITextField"; placeholder = "Enter tasks's title"; ObjectID = "ymn-tX-jDm"; */
 "ymn-tX-jDm.placeholder" = "Введите описание задачи";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "r2U-kp-aqp"; */
+"r2U-kp-aqp.text" = "Сегодня";
+
+/* Class = "UILabel"; text = "Tomorrow"; ObjectID = "ppK-XB-9Qv"; */
+"ppK-XB-9Qv.text" = "Завтра";
