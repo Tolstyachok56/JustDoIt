@@ -150,6 +150,9 @@ class TodayViewController: UIViewController {
 extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        setupView()
+        fetchTasks()
+        updateView()
         completionHandler(NCUpdateResult.newData)
     }
     
