@@ -99,6 +99,16 @@ class AddListTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - UITableViewDataSource methods
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("Name", comment: "Name")
+        } else {
+            return ""
+        }
+    }
+    
     // MARK: - UITableViewDelegate
     
     

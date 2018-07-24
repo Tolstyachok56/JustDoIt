@@ -132,6 +132,16 @@ class AddTaskTableViewController: UITableViewController {
             fatalError("Unexpected segue identifier")
         }
     }
+    
+    // MARK: - UITableViewDataSource methods
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("Title", comment: "Title")
+        } else {
+            return ""
+        }
+    }
 
     // MARK: - UITableViewDelegate methods
 
@@ -141,6 +151,7 @@ class AddTaskTableViewController: UITableViewController {
             titleTextField.resignFirstResponder()
         } 
     }
+    
 
 }
 

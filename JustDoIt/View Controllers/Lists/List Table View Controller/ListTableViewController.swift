@@ -88,6 +88,16 @@ class ListTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - UITableViewDataSource methods
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return NSLocalizedString("Name", comment: "Name")
+        } else {
+            return ""
+        }
+    }
+    
     // MARK: - UITableViewDelegate methods
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

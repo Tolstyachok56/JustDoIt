@@ -41,6 +41,7 @@ class IconViewController: UIViewController {
         case Messages = "Messages"
         case MoneyBox = "MoneyBox"
         case Payments = "Payments"
+        case Sports = "Sports"
         case Tickets = "Tickets"
         case Trash = "Trash"
         
