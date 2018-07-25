@@ -125,6 +125,7 @@ extension IconViewController: UITableViewDelegate {
         let iconNames = IconName.allCases.compactMap {$0.rawValue}
         self.iconName = iconNames[indexPath.row]
         tableView.reloadData()
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

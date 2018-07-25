@@ -1,0 +1,33 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3Bd-nL-mxk"; */
+"3Bd-nL-mxk.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Enter list's name"; ObjectID = "5ii-IS-5ur"; */
+"5ii-IS-5ur.placeholder" = "Enter list's name";
+
+/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "IvY-xG-Stg"; */
+"IvY-xG-Stg.headerTitle" = "Name";
+
+/* Class = "UILabel"; text = "Icon"; ObjectID = "LcK-Rk-oQ7"; */
+"LcK-Rk-oQ7.text" = "Icon";
+
+/* Class = "UILabel"; text = "Icon"; ObjectID = "P71-Yz-GoN"; */
+"P71-Yz-GoN.text" = "Icon";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qcv-eD-dRf"; */
+"Qcv-eD-dRf.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Enter list's name"; ObjectID = "YOx-Zg-1WC"; */
+"YOx-Zg-1WC.placeholder" = "Enter list's name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "lD4-g8-py3"; */
+"lD4-g8-py3.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "mzi-RT-ReD"; */
+"mzi-RT-ReD.title" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "orK-Lg-5Fh"; */
+"orK-Lg-5Fh.text" = "Label";
+
+/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "phL-AC-gZc"; */
+"phL-AC-gZc.headerTitle" = "Name";
