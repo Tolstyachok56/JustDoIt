@@ -1,4 +1,3 @@
 # JustDoIt
 
-Xcode 10.0 beta 
-iOS Deployment Target 10.0
+Xcode 9.4.1, iOS Deployment Target 10.0
