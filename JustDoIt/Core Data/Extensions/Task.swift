@@ -37,7 +37,7 @@ extension Task {
             let content = UNMutableNotificationContent()
             content.title = (self.list?.name)!
             content.body = self.title!
-            content.sound = UNNotificationSound.default
+            content.sound = UNNotificationSound.default()
             content.badge = 1
             
             let calendar = Calendar.current

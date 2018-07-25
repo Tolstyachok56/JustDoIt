@@ -86,7 +86,7 @@ class ListsViewController: UIViewController {
     
     private func setupTableView() {
         tableView.estimatedRowHeight = CGFloat(44)
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func updateView() {
@@ -186,7 +186,7 @@ extension ListsViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         
         let list = fetchedResultsController.object(at: indexPath)

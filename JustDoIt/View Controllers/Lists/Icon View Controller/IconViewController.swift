@@ -16,7 +16,7 @@ class IconViewController: UIViewController {
     
     //MARK: - IconNames
     
-    private enum IconName: String, CaseIterable {
+    private enum IconName: String /*, CaseIterable*/ {
         
         case NoIcon = "NoIcon"
         
@@ -45,6 +45,7 @@ class IconViewController: UIViewController {
         case Tickets = "Tickets"
         case Trash = "Trash"
         
+        static let allCases: [IconName] = [.NoIcon, .Airport, .Animals, .Appointments, .Baby, .Birthdays, .Briefcase, .Charts, .Cloakroom, .Documents, .Family, .Folder, .Groceries, .Heart, .House, .Housekeeping, .Ideas, .MapMarker, .Medicine, .Messages, .MoneyBox, .Payments, .Sports, .Tickets, .Trash]
     }
     
     //MARK: - Properties

@@ -81,7 +81,7 @@ class TodayViewController: UIViewController {
     
     private func setupTableView() {
         tableView.estimatedRowHeight = CGFloat(44)
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func updateView() {
@@ -106,7 +106,7 @@ class TodayViewController: UIViewController {
         let task = fetchedResultsController.object(at: indexPath)
         
         let attributedString = NSMutableAttributedString()
-        let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+        let strikeAttributes = [NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
         
         if task.isChecked {
             cell.checkmarkLabel.isHidden = false

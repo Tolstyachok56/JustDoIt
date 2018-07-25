@@ -98,7 +98,7 @@ class TasksViewController: UIViewController {
     
     private func setupTableView() {
         tableView.estimatedRowHeight = CGFloat(44)
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func updateView() {
@@ -180,7 +180,7 @@ class TasksViewController: UIViewController {
         
         //nameLabel & checkmarkLabel
         let attributedString = NSMutableAttributedString()
-        let strikeAttributes = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+        let strikeAttributes = [NSAttributedStringKey.strikethroughStyle: NSUnderlineStyle.styleSingle.rawValue]
         
         if task.isChecked {
             attributedString.append(NSAttributedString(string: task.title!, attributes: strikeAttributes))
@@ -257,7 +257,7 @@ extension TasksViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
         let task = fetchedResultsController.object(at: indexPath)
         removeTask(task)
