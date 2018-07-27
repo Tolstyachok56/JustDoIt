@@ -197,6 +197,7 @@ extension ListsViewController: UITableViewDataSource {
             }
         }
         coreDataManager.mainManagedObjectContext.delete(list)
+        coreDataManager.saveChanges()
     }
     
 }

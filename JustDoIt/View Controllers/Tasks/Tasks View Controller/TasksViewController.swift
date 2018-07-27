@@ -232,6 +232,7 @@ class TasksViewController: UIViewController {
     private func removeTask(_ task: Task) {
         task.removeNotification()
         list?.managedObjectContext?.delete(task)
+        coreDataManager?.saveChanges()
     }
 
 }
