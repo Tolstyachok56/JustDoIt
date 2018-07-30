@@ -84,6 +84,12 @@ class TaskTableViewController: UITableViewController {
     }
     
     private func updateReminderDateLabel() {
+        if let _ = task?.dueDate {
+            reminderDateLabel.textColor = .darkGray
+        } else {
+            reminderDateLabel.textColor = .lightGray
+        }
+        
         guard let _ = task?.reminderDate, let reminderDelay = task?.reminderDelay  else {
             reminderDateLabel.text = NSLocalizedString("No reminder date", comment: "No reminder date")
             return
@@ -127,6 +133,13 @@ class TaskTableViewController: UITableViewController {
         if indexPath.section == 1 {
             titleTextField.resignFirstResponder()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath == IndexPath(row: 1, section: 1) && task?.dueDate == nil {
+            return nil
+        }
+        return indexPath
     }
     
 }

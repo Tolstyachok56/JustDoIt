@@ -35,8 +35,8 @@ extension Task {
         if let reminderDate = self.reminderDate, self.shouldRemind && reminderDate > Date() && isChecked == false {
             
             let content = UNMutableNotificationContent()
-            content.title = (self.list?.name)!
-            content.body = self.title!
+            content.title = "\((self.list?.name)!): \(self.title!)"
+            content.body = Task.dueDateFormatter.string(from: self.dueDate!)
             content.sound = UNNotificationSound.default()
             content.badge = 1
             
