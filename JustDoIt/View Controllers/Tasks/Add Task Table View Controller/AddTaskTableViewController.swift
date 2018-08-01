@@ -131,9 +131,11 @@ class AddTaskTableViewController: UITableViewController {
         case Segue.DueDate:
             guard let destination = segue.destination as? DueDateTableViewController else { return }
             destination.delegate = self
+            destination.dueDate = dueDate
         case Segue.ReminderDate:
             guard let destination = segue.destination as? ReminderDateTableViewController else { return }
             destination.delegate = self
+            destination.reminderDelay = reminderDelay
         default:
             fatalError("Unexpected segue identifier")
         }

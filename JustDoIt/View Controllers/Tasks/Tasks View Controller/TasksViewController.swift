@@ -277,6 +277,7 @@ extension TasksViewController: UITableViewDelegate {
         
         task.isChecked = !task.isChecked
         task.scheduleNotification()
+        coreDataManager?.saveChanges()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
