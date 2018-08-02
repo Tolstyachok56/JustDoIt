@@ -787,7 +787,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "JustDoIt/Supporting Files/JustDoIt.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -797,6 +798,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.JustDoIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2734dc56-3142-42e7-8f9f-61f44b08f731";
+				PROVISIONING_PROFILE_SPECIFIER = JustDoItStoreProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -808,7 +811,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "JustDoIt/Supporting Files/JustDoIt.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -818,6 +822,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vbadisova.JustDoIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2734dc56-3142-42e7-8f9f-61f44b08f731";
+				PROVISIONING_PROFILE_SPECIFIER = JustDoItStoreProfile;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -827,7 +833,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "JustDoIt Widget/Supporting Files/JustDoIt Widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt Widget/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -838,6 +845,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vbadisova.JustDoIt.JustDoIt-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33045766-8201-418e-b74f-4742fbf092e4";
+				PROVISIONING_PROFILE_SPECIFIER = "JustDoIt-WidgetStoreProfile";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -848,7 +857,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "JustDoIt Widget/Supporting Files/JustDoIt Widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 9E7V52UM47;
 				INFOPLIST_FILE = "JustDoIt Widget/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -859,6 +869,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vbadisova.JustDoIt.JustDoIt-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "33045766-8201-418e-b74f-4742fbf092e4";
+				PROVISIONING_PROFILE_SPECIFIER = "JustDoIt-WidgetStoreProfile";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
